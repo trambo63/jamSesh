@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using JamSesh.Models;
+using JamSesh.Repositories;
 
 namespace JamSesh.Controllers
 {
@@ -11,36 +13,53 @@ namespace JamSesh.Controllers
     [ApiController]
     public class JamController : ControllerBase
     {
+        private JamSesh.Repositories.IRepository<Jam> jamRepo;
+
+        public JamController(IRepository<Jam> jamRepo)
+        {
+
+            this.jamRepo = jamRepo;
+
+        }
+
         // GET: api/Jam
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Jam> Get()
         {
-            return new string[] { "value1", "value2" };
+            return jamRepo.GetAll();
         }
 
         // GET: api/Jam/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public Jam Get(int id)
         {
-            return "value";
+            Jam jam = jamRepo.GetById(id);
+            return jam;
         }
 
         // POST: api/Jam
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IEnumerable<Jam> Post([FromBody] Jam value)
         {
+            jamRepo.Create(value);
+            return jamRepo.GetAll();
         }
 
         // PUT: api/Jam/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IEnumerable<Jam> Put([FromBody] Jam value)
         {
+            jamRepo.Update(value);
+            return jamRepo.GetAll();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Jam> Delete(int id)
         {
+            var jam = jamRepo.GetById(id);
+            jamRepo.Delete(jam);
+            return jamRepo.GetAll();
         }
     }
 }

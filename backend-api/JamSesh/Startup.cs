@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JamSesh.Context;
 using JamSesh.Models;
 using JamSesh.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -38,6 +39,7 @@ namespace JamSesh
             // This method gets called by the runtime. Use this method to add services to the container.
 
             services.AddControllers();
+            services.AddDbContext<JamSeshContext>();
             services.AddScoped<IRepository<Jam>, JamRepository>();
             services.AddScoped<IRepository<Profile>, ProfileRepository>();
 

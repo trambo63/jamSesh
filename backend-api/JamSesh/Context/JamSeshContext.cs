@@ -21,11 +21,11 @@ namespace JamSesh.Context
             base.OnConfiguring(optionsBuilder); 
         }
 
-            protected override void OnModelCreating(ModelBuilder modelbuilder)
-            {
-            //modelbuilder.Entity<Jam>().HasData();
+        protected override void OnModelCreating(ModelBuilder modelbuilder)
+        {
+            modelbuilder.Entity<Jam>().HasData(new Jam());
 
-            //modelbuilder.Entity<Profile>().HasData();
+            modelbuilder.Entity<Profile>().HasData(new Profile());
         }
     }
 }

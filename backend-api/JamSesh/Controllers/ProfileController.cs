@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JamSesh.Models;
+using JamSesh.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,36 +13,54 @@ namespace JamSesh.Controllers
     [ApiController]
     public class ProfileController : ControllerBase
     {
+        private JamSesh.Repositories.IRepository<Profile> profileRepo;
+
+        public ProfileController(IRepository<Profile> profileRepo)
+        {
+
+            this.profileRepo = profileRepo;
+
+        }
+
         // GET: api/Profile
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Profile> Get()
         {
-            return new string[] { "value1", "value2" };
+            return profileRepo.GetAll();
         }
 
         // GET: api/Profile/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("{id}")]
+        public Profile Get(int id)
         {
-            return "value";
+            Profile profile = profileRepo.GetById(id);
+            return profile;
         }
 
         // POST: api/Profile
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IEnumerable<Profile> Post([FromBody] Profile value)
         {
+            profileRepo.Create(value);
+            return profileRepo.GetAll();
         }
 
         // PUT: api/Profile/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IEnumerable<Profile> Put([FromBody] Profile value)
         {
+            profileRepo.Update(value);
+            return profileRepo.GetAll();
         }
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IEnumerable<Profile> Delete(int id)
         {
+            var profile = profileRepo.GetById(id);
+            profileRepo.Delete(profile);
+            return profileRepo.GetAll();
         }
     }
 }
+
