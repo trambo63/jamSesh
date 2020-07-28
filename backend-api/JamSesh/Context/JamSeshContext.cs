@@ -27,7 +27,5 @@ namespace JamSesh.Context
 
             //modelbuilder.Entity<Profile>().HasData();
         }
-
-
     }
 }
