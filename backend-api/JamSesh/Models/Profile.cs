@@ -13,7 +13,7 @@ namespace JamSesh.Models
         public string Instruments { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
-        public List<Jam> JamsAttending { get; set; }
+        public virtual List<Jam> JamsAttending { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Castle.Components.DictionaryAdapter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,10 @@ namespace JamSesh.Models
         public DateTime EventDate { get; set; }
         public int MaxNumberOfAttendees { get; set; }
         public string Image { get; set; }
-        public List<Profile> Attendees { get; set; }
+        public virtual List<Profile> Attendees { get; set; }
 
         public int ProfileId { get; set; }
-        public Profile CreatorProfile { get; set; }
+        public  virtual Profile CreatorProfile { get; set; }
+
     }
 }
