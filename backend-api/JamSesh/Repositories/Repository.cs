@@ -11,16 +11,10 @@ namespace JamSesh.Repositories
     public class Repository<T> where T : class
     {
         private DbContext db;
-        private JamSeshContext context;
 
         public Repository(DbContext db)
         {
             this.db = db;
-        }
-
-        public Repository(JamSeshContext context)
-        {
-            this.context = context;
         }
 
         public IEnumerable<T> GetAll()

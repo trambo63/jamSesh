@@ -23,10 +23,10 @@ namespace JamSesh.Context
 
             protected override void OnModelCreating(ModelBuilder modelbuilder)
             {
-            modelbuilder.Entity<Jam>().HasData();
+            //modelbuilder.Entity<Jam>().HasData();
 
-            modelbuilder.Entity<Profile>().HasData();
-            }
+            //modelbuilder.Entity<Profile>().HasData();
+        }
 
 
     }
