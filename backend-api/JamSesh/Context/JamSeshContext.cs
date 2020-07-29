@@ -69,6 +69,10 @@ namespace JamSesh.Context
                     MaxNumberOfAttendees = 3,
                     Image = "JamIcon.jpg",
                     ProfileId = 1
+                   
+                   
+
+                   
                 }
 
                 );

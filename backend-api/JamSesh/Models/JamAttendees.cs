@@ -7,7 +7,7 @@ namespace JamSesh.Models
 {
     public class JamAttendees
     {
-        public virtual List<Profile> Attendees { get; set; }
+        public virtual List<Profile> Attendees { get; set; } = new List<Profile>();
 
         public int Id { get; set; }
 
