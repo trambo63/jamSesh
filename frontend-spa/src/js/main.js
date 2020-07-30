@@ -1,7 +1,8 @@
 import Jam from "./components/jam";
-import Profile from "./components/profile";
+import ProfileDetails from "./components/profileDetails";
 import apiActions from "./api/apiActions";
 import listProfiles from "./components/listProfiles";
+import MyProfile from "./components/myProfile"
 
 const appDiv = document.querySelector('#app');
 
@@ -27,3 +28,53 @@ function ShowProfiles() {
         })
         .catch(err => console.log(err))
 }
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('add-profile__button')) {
+        const addProfileSection = document.querySelector('.add-profile');
+        addProfileSection.innerHTML = ProfilePost();
+    }
+})
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('profile-details__button')) {
+        const profileId = event.target.parentElement.querySelector('.profile-details__button').id;
+        apiActions.getRequest(
+            `https://localhost:44372/api/Profile/${profileId}` ,
+            profile => {
+                appDiv.innerHTML = ProfileDetails(profile);
+            }
+        )
+    }
+})
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('nav__myprofile')) {
+        const profileId = event.target.parentElement.querySelector('.nav__myprofile').id;
+        apiActions.getRequest(
+            `https://localhost:44372/api/Profile/${profileId}` ,
+            profile => {
+                appDiv.innerHTML = MyProfile(profile);
+            }
+        )
+    }
+})
+
+appDiv.addEventListener('click', function(){
+    if(event.target.classList.contains('delete-profile__button')){
+        const profileId = event.target.parentElement.querySelector('.delete-profile__button').id;
+
+        const profileCallback = () => {
+            apiActions.getRequest(
+                `https://localhost:44372/api/Jams/`,
+                profile => {
+                    appDiv.innerHTML = Profile(profile);
+                })
+        }
+
+        apiActions.deleteRequest(
+            `https://localhost:44372/api/Profile/${profileId}`,
+            profileCallback
+        )
+    }
+})
