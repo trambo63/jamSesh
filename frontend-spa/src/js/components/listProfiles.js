@@ -19,7 +19,7 @@ export default function listProfiles(profiles){
     `
 }).join("")}           
 </ul>
-<section class= "add-profile">
+<section class="add-profile">
         <button class="add-profile__button">Create Profile </button>
         </section>
 `

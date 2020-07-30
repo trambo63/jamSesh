@@ -3,6 +3,7 @@ import ProfileDetails from "./components/profileDetails";
 import apiActions from "./api/apiActions";
 import listProfiles from "./components/listProfiles";
 import MyProfile from "./components/myProfile"
+import ProfilePost from "./components/profilePost";
 
 const appDiv = document.querySelector('#app');
 
@@ -66,7 +67,7 @@ appDiv.addEventListener('click', function(){
 
         const profileCallback = () => {
             apiActions.getRequest(
-                `https://localhost:44372/api/Jams/`,
+                `https://localhost:44372/api/Profiles/`,
                 profile => {
                     appDiv.innerHTML = Profile(profile);
                 })
