@@ -1,4 +1,4 @@
-export default function ProfilePost(profileId){
+export default function ProfilePost(profileId) {
     return `
 
 <input class="add-profile__name" type="text" placeholder="Your Name">

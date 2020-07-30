@@ -36,6 +36,31 @@ appDiv.addEventListener('click', function () {
         addProfileSection.innerHTML = ProfilePost();
     }
 })
+appDiv.addEventListener("click", function () {
+    if (event.target.classList.contains('add-profile__submit')) {
+      const profileName = event.target.parentElement.querySelector('.add-profile__name').value;
+      const profileLocation = event.target.parentElement.querySelector('.add-profile__location').value;
+      const profileInstruments = event.target.parentElement.querySelector('.add-profile__instruments').value;
+      const profileDescription = event.target.parentElement.querySelector('.add-profile__description').value;
+      const profileId = event.target.parentElement.querySelector(".add-profile__id").id;
+  
+      var requestBody = {
+        name: profileName,
+        loction: profileLocation,
+        instruments: profileInstruments,
+        description: profileDescription,
+        id: profileId
+      }
+  
+      apiActions.postRequest(
+        "https://localhost:44372/api/Profile",
+        requestBody,
+        profiles => {
+            appDiv.innerHTML = listProfiles(profiles);
+        }
+    )
+    }
+})
 
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('profile-details__button')) {
