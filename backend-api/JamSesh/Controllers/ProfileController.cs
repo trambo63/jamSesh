@@ -47,10 +47,10 @@ namespace JamSesh.Controllers
 
         // PUT: api/Profile/5
         [HttpPut("{id}")]
-        public IEnumerable<Profile> Put([FromBody] Profile value)
+        public Profile Put([FromBody] Profile value)
         {
             profileRepo.Update(value);
-            return profileRepo.GetAll();
+            return profileRepo.GetById(value.Id);
         }
 
         // DELETE: api/ApiWithActions/5

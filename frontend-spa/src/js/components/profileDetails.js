@@ -8,7 +8,7 @@ export default function ProfileDetails(profile) {
     <li>${profile.description}</li>
     <button class="delete-profile__button" id="${profile.id}" value="${profile.id}">Delete Profile</button>                   
     <button class="profile__edit_button" id="${profile.id}" value="${profile.id}">Edit Profile</button>                   
-
+    
     
     `
 }
