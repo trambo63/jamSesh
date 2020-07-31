@@ -5,12 +5,18 @@ import ListProfiles from "./components/listProfiles";
 import MyProfile from "./components/myProfile"
 import ProfilePost from "./components/profilePost";
 import ProfileEdit from "./components/profileEdit";
+import listJams from "./components/listJams";
+import JamDetails from "./components/jamDetails";
+import JamPost from "./components/jamPost";
+import JamEdit from "./components/jamEdit";
 
 const appDiv = document.querySelector('#app');
 
 export default function pageBuild() {
     ShowProfiles();
     navHome();
+    ShowJams();
+    navJams();
 }
 
 function navHome() {
@@ -26,6 +32,24 @@ function ShowProfiles() {
         .then(profiles => {
             appDiv.innerHTML = ListProfiles(profiles);
             console.log(profiles);
+
+        })
+        .catch(err => console.log(err))
+}
+
+function navJams() {
+    const jamsButton = document.querySelector('.nav__jams');
+    jamsButton.addEventListener('click', function () {
+        appDiv.innerHTML = ShowJams();
+    })
+}
+
+function ShowJams() {
+    fetch("https://localhost:44372/api/Jam")
+        .then(response => response.json())
+        .then(jams => {
+            appDiv.innerHTML = listJams(jams);
+            console.log(jams);
 
         })
         .catch(err => console.log(err))
@@ -148,5 +172,120 @@ appDiv.addEventListener('click', function(){
             `https://localhost:44372/api/Profile/${profileId}`,
             profileCallback
         )
+    }
+})
+//**********************************JAMS******************************************************* */
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('jam-details__button')) {
+        console.log("jam details1")
+        const jamId = event.target.parentElement.querySelector('.jam-details__button').id;
+        apiActions.getRequest(
+            `https://localhost:44372/api/Jam/${jamId}` ,
+            jam => {
+                appDiv.innerHTML = JamDetails(jam);
+            }
+        )
+    }
+})
+
+
+appDiv.addEventListener("click", function () {
+    if (event.target.classList.contains('edit-jam__submit')) {
+      const jamName = event.target.parentElement.querySelector('.edit-jam__name').value;
+      const jamLocation = event.target.parentElement.querySelector('.edit-jam__location').value;
+      const jamDescription = event.target.parentElement.querySelector('.edit-jam__description').value;
+      const jamDate = event.target.parentElement.querySelector('.edit-jam__date').value;
+      const jamAttendees = event.target.parentElement.querySelector('.edit-jam__attendees').value;
+      console.log("jam edit is here");
+      const jamId = event.target.parentElement.querySelector('.edit-jam__submit').id;
+        console.log("the jam id is " + jamId );
+  
+      var requestBody = {
+        name: jamName,
+        location: jamLocation,
+        description: jamDescription,
+        eventDate: jamDate,
+        maxNumberOfAttendees: jamAttendees,
+        image: "dummy image",
+        id: jamId
+      }
+      console.log(requestBody);
+  
+      apiActions.putRequest(
+        `https://localhost:44372/api/Jam/${jamId}`,
+        requestBody,
+        jams => {
+            appDiv.innerHTML = listJams(jams);
+        }
+    )
+    }
+})
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('jam__edit_button')) {
+        const jamId = event.target.parentElement.querySelector('.jam__edit_button').id;
+        apiActions.getRequest(
+            `https://localhost:44372/api/Jam/${jamId}` ,
+            jam => {
+                appDiv.innerHTML = JamEdit(jam);
+            }
+        )
+    }
+})
+
+appDiv.addEventListener('click', function(){
+    if(event.target.classList.contains('delete-jam__button')){
+        const jamId = event.target.parentElement.querySelector('.delete-jam__button').id;
+        
+        const jamCallback = () => {
+            apiActions.getRequest(
+                `https://localhost:44372/api/Jam/`,
+                jams => {
+                    console.log("before listing jams");
+                    appDiv.innerHTML = listJams(jams);
+                    console.log("after listing jams")
+                })
+        }
+
+        apiActions.deleteRequest(
+            `https://localhost:44372/api/Jam/${jamId}`,
+            jamCallback
+        )
+    }
+})
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('add-jam__button')) {
+        const addJamSection = document.querySelector('.add-jam');
+        addJamSection.innerHTML = JamPost();
+    }
+})
+appDiv.addEventListener("click", function () {
+    if (event.target.classList.contains('add-jam__submit')) {
+        const jamName = event.target.parentElement.querySelector('.add-jam__name').value;
+        const jamLocation = event.target.parentElement.querySelector('.add-jam__location').value;
+        const jamDescription = event.target.parentElement.querySelector('.add-jam__description').value;
+        const jamDate = event.target.parentElement.querySelector('.add-jam__date').value;
+        const jamAttendees = event.target.parentElement.querySelector('.add-jam__attendees').value;
+      console.log("add jam")
+  
+      var requestBody = {
+        name: jamName,
+        location: jamLocation,
+        description: jamDescription,
+        eventDate: jamDate,
+        maxNumberOfAttendees: jamAttendees,
+        image: "dummy image",
+      }
+      console.log(requestBody);
+  
+      apiActions.postRequest(
+        "https://localhost:44372/api/Jam",
+        requestBody,
+        jams => {
+            appDiv.innerHTML = listJams(jams);
+        }
+    )
     }
 })
