@@ -1,7 +1,7 @@
 import Jam from "./components/jam";
 import ProfileDetails from "./components/profileDetails";
 import apiActions from "./api/apiActions";
-import listProfiles from "./components/listProfiles";
+import ListProfiles from "./components/listProfiles";
 import MyProfile from "./components/myProfile"
 import ProfilePost from "./components/profilePost";
 import ProfileEdit from "./components/profileEdit";
@@ -24,7 +24,7 @@ function ShowProfiles() {
     fetch("https://localhost:44372/api/Profile")
         .then(response => response.json())
         .then(profiles => {
-            appDiv.innerHTML = listProfiles(profiles);
+            appDiv.innerHTML = ListProfiles(profiles);
             console.log(profiles);
 
         })
@@ -58,7 +58,7 @@ appDiv.addEventListener("click", function () {
         "https://localhost:44372/api/Profile",
         requestBody,
         profiles => {
-            appDiv.innerHTML = listProfiles(profiles);
+            appDiv.innerHTML = ListProfiles(profiles);
         }
     )
     }
@@ -84,11 +84,11 @@ appDiv.addEventListener("click", function () {
       }
       console.log(requestBody);
   
-      apiActions.postRequest(
-        "https://localhost:44372/api/Profile",
+      apiActions.putRequest(
+        `https://localhost:44372/api/Profile/${profileId}`,
         requestBody,
-        profile => {
-            appDiv.innerHTML = MyProfile(profile);
+        profiles => {
+            appDiv.innerHTML = ListProfiles(profiles);
         }
     )
     }
@@ -96,7 +96,7 @@ appDiv.addEventListener("click", function () {
 
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('profile__edit_button')) {
-        const profileId = event.target.parentElement.querySelector('.profile-details__button').id;
+        const profileId = event.target.parentElement.querySelector('.profile__edit_button').id;
         apiActions.getRequest(
             `https://localhost:44372/api/Profile/${profileId}` ,
             profile => {
@@ -139,7 +139,7 @@ appDiv.addEventListener('click', function(){
                 `https://localhost:44372/api/Profile/`,
                 profiles => {
                     console.log("before listing profiles");
-                    appDiv.innerHTML = listProfiles(profiles);
+                    appDiv.innerHTML = ListProfiles(profiles);
                     console.log("after listing profiles")
                 })
         }
