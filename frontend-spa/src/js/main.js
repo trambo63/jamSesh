@@ -87,8 +87,8 @@ appDiv.addEventListener("click", function () {
       apiActions.putRequest(
         `https://localhost:44372/api/Profile/${profileId}`,
         requestBody,
-        profiles => {
-            appDiv.innerHTML = ListProfiles(profiles);
+        profile => {
+            appDiv.innerHTML = ProfileDetails(profile);
         }
     )
     }
