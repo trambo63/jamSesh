@@ -42,15 +42,16 @@ appDiv.addEventListener("click", function () {
       const profileLocation = event.target.parentElement.querySelector('.add-profile__location').value;
       const profileInstruments = event.target.parentElement.querySelector('.add-profile__instruments').value;
       const profileDescription = event.target.parentElement.querySelector('.add-profile__description').value;
-      const profileId = event.target.parentElement.querySelector(".add-profile__id").id;
+      console.log("edit")
   
       var requestBody = {
         name: profileName,
-        loction: profileLocation,
+        location: profileLocation,
         instruments: profileInstruments,
         description: profileDescription,
-        id: profileId
+        image: "dummy image"
       }
+      console.log(requestBody);
   
       apiActions.postRequest(
         "https://localhost:44372/api/Profile",
@@ -89,12 +90,14 @@ appDiv.addEventListener('click', function () {
 appDiv.addEventListener('click', function(){
     if(event.target.classList.contains('delete-profile__button')){
         const profileId = event.target.parentElement.querySelector('.delete-profile__button').id;
-
+        
         const profileCallback = () => {
             apiActions.getRequest(
-                `https://localhost:44372/api/Profiles/`,
-                profile => {
-                    appDiv.innerHTML = Profile(profile);
+                `https://localhost:44372/api/Profile/`,
+                profiles => {
+                    console.log("before listing profiles");
+                    appDiv.innerHTML = listProfiles(profiles);
+                    console.log("after listing profiles")
                 })
         }
 
