@@ -47,10 +47,10 @@ namespace JamSesh.Controllers
 
         // PUT: api/Jam/5
         [HttpPut("{id}")]
-        public IEnumerable<Jam> Put([FromBody] Jam value)
+        public Jam Put([FromBody] Jam value)
         {
             jamRepo.Update(value);
-            return jamRepo.GetAll();
+            return jamRepo.GetById(value.Id);
         }
 
         // DELETE: api/ApiWithActions/5

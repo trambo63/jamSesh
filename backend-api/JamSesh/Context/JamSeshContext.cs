@@ -68,11 +68,7 @@ namespace JamSesh.Context
                     EventDate = DateTime.Now,
                     MaxNumberOfAttendees = 3,
                     Image = "JamIcon.jpg",
-                    ProfileId = 1
-                   
-                   
-
-                   
+                    ProfileId = 1               
                 }
 
                 );
