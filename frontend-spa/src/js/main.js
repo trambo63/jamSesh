@@ -5,7 +5,7 @@ import ListProfiles from "./components/listProfiles";
 import MyProfile from "./components/myProfile"
 import ProfilePost from "./components/profilePost";
 import ProfileEdit from "./components/profileEdit";
-import listJams from "./components/listJams";
+import ListJams from "./components/listJams";
 import JamDetails from "./components/jamDetails";
 import JamPost from "./components/jamPost";
 import JamEdit from "./components/jamEdit";
@@ -48,7 +48,7 @@ function ShowJams() {
     fetch("https://localhost:44372/api/Jam")
         .then(response => response.json())
         .then(jams => {
-            appDiv.innerHTML = listJams(jams);
+            appDiv.innerHTML = ListJams(jams);
             console.log(jams);
 
         })
@@ -198,9 +198,11 @@ appDiv.addEventListener("click", function () {
       const jamDescription = event.target.parentElement.querySelector('.edit-jam__description').value;
       const jamDate = event.target.parentElement.querySelector('.edit-jam__date').value;
       const jamAttendees = event.target.parentElement.querySelector('.edit-jam__attendees').value;
+      const jamProfileId = event.target.parentElement.querySelector('.edit-jam__profileId').value;
       console.log("jam edit is here");
       const jamId = event.target.parentElement.querySelector('.edit-jam__submit').id;
         console.log("the jam id is " + jamId );
+
   
       var requestBody = {
         name: jamName,
@@ -209,15 +211,16 @@ appDiv.addEventListener("click", function () {
         eventDate: jamDate,
         maxNumberOfAttendees: jamAttendees,
         image: "dummy image",
-        id: jamId
+        id: jamId,
+        profileId: jamProfileId
       }
       console.log(requestBody);
   
       apiActions.putRequest(
         `https://localhost:44372/api/Jam/${jamId}`,
         requestBody,
-        jams => {
-            appDiv.innerHTML = listJams(jams);
+        jam => {
+            appDiv.innerHTML = JamDetails(jam);
         }
     )
     }
@@ -244,7 +247,7 @@ appDiv.addEventListener('click', function(){
                 `https://localhost:44372/api/Jam/`,
                 jams => {
                     console.log("before listing jams");
-                    appDiv.innerHTML = listJams(jams);
+                    appDiv.innerHTML = ListJams(jams);
                     console.log("after listing jams")
                 })
         }
@@ -285,7 +288,7 @@ appDiv.addEventListener("click", function () {
         "https://localhost:44372/api/Jam",
         requestBody,
         jams => {
-            appDiv.innerHTML = listJams(jams);
+            appDiv.innerHTML = ListJams(jams);
         }
     )
     }
