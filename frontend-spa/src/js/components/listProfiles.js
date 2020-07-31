@@ -10,7 +10,7 @@ export default function listProfiles(profiles){
                     <li><h3>location: ${profile.location}</h3>
                     <li><h3>instruments: ${profile.instruments}</h3>
                     <li><h3>description: ${profile.description}</h3>
-                    <button class= "profile-details__button" Id="${profile.id}">Profile Details</button>
+                    <button class="profile-details__button" id="${profile.id}">Profile Details</button>
                     <img class="profile__name" src="images/${profile.image}" alt="${profile.image}" width="200" height="200"></img>
                 </a>
             </li>
