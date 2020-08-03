@@ -37,6 +37,15 @@ namespace JamSesh.Controllers
             return profile;
         }
 
+        // GET: api/Profile/jay
+        [HttpGet("{userName}/{password}")]
+        public Profile Get(string userName, string password)
+        {
+            string valueInspector = userName + '\t' + password;
+            Profile profile = profileRepo.GetAll().FirstOrDefault(x => x.Name == userName && x.Password == password);
+            return profile;
+        }
+
         // POST: api/Profile
         [HttpPost]
         public IEnumerable<Profile> Post([FromBody] Profile value)
