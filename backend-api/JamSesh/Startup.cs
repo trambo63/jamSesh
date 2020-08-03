@@ -42,6 +42,7 @@ namespace JamSesh
             services.AddDbContext<JamSeshContext>();
             services.AddScoped<IRepository<Jam>, JamRepository>();
             services.AddScoped<IRepository<Profile>, ProfileRepository>();
+            services.AddScoped<IRepository<JamAttendees>, JamAttendeesRepository>();
 
             services.AddCors(options =>
             {

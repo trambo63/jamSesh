@@ -9,6 +9,7 @@ import ListJams from "./components/listJams";
 import JamDetails from "./components/jamDetails";
 import JamPost from "./components/jamPost";
 import JamEdit from "./components/jamEdit";
+import ProfileLogin from "./components/profileLogin";
 
 const appDiv = document.querySelector('#app');
 
@@ -23,6 +24,11 @@ function navHome() {
     const homeButton = document.querySelector('.nav__profiles');
     homeButton.addEventListener('click', function () {
         appDiv.innerHTML = ShowProfiles();
+    })
+
+    const myProfileButton = document.querySelector('.nav__myprofile');
+    myProfileButton.addEventListener('click', function () {
+        appDiv.innerHTML = ProfileLogin();
     })
 }
 
@@ -265,6 +271,39 @@ appDiv.addEventListener('click', function () {
         addJamSection.innerHTML = JamPost();
     }
 })
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('logon-profile__submit')) {
+
+        const logonName = event.target.parentElement.querySelector('.logon-profile__name').value;
+        const logonPassword = event.target.parentElement.querySelector('.logon-profile__password').value;
+
+        // var requestBody = {
+        //     name: logonName,
+        //     location: logonPassword
+        // }
+
+
+        apiActions.getRequest(
+            `https://localhost:44372/api/Profile/${logonName}/${logonPassword}`,
+            profile => {
+                appDiv.innerHTML = ProfileEdit(profile);
+            }
+        )
+
+    }
+})
+
+// appDiv.addEventListener('click', function () { 
+//     console.log("1");
+//     if (event.target.classList.contains('nav__myprofile')) {
+//                 appDiv.innerHTML = ProfileLogin();
+//             }
+//             else {
+//                 console.log("does not exist");
+//             }
+ 
+// })
 appDiv.addEventListener("click", function () {
     if (event.target.classList.contains('add-jam__submit')) {
         const jamName = event.target.parentElement.querySelector('.add-jam__name').value;

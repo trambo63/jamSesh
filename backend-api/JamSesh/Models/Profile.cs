@@ -14,6 +14,7 @@ namespace JamSesh.Models
         public string Instruments { get; set; }
         public string Image { get; set; }
         public string Description { get; set; }
+        public string Password { get; set; }
 
         [JsonIgnore]
         public virtual List<Jam> JamsAttending { get; set; }
