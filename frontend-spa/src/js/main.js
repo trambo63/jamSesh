@@ -281,6 +281,7 @@ appDiv.addEventListener("click", function () {
         eventDate: jamDate,
         maxNumberOfAttendees: jamAttendees,
         image: "dummy image",
+        profileId: 1
       }
       console.log(requestBody);
   
