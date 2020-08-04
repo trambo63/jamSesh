@@ -59,7 +59,7 @@ namespace JamSesh.Controllers
         public Profile Put([FromBody] Profile value)
         {
             profileRepo.Update(value);
-            return profileRepo.GetById(value.Id);
+            return profileRepo.GetById(value.ProfileId);
         }
 
         // DELETE: api/ApiWithActions/5
