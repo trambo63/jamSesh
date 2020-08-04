@@ -10,6 +10,7 @@ import JamDetails from "./components/jamDetails";
 import JamPost from "./components/jamPost";
 import JamEdit from "./components/jamEdit";
 import ProfileLogin from "./components/profileLogin";
+import Map from "./components/map";
 
 const appDiv = document.querySelector('#app');
 
@@ -19,6 +20,7 @@ export default function pageBuild() {
     ShowJams();
     navJams();
     ReadonlyDateTime();
+    initMap();
 }
 
 function navHome() {
@@ -332,3 +334,12 @@ appDiv.addEventListener("click", function () {
     )
     }
 })
+
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
+}
