@@ -18,6 +18,7 @@ export default function pageBuild() {
     navHome();
     ShowJams();
     navJams();
+    ReadonlyDateTime();
 }
 
 function navHome() {
