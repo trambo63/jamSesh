@@ -270,7 +270,7 @@ appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('add-jam__button')) {
         const addJamSection = document.querySelector('.add-jam');
         addJamSection.innerHTML = JamPost();
-    }
+    } 
 })
 
 appDiv.addEventListener('click', function () {
@@ -278,20 +278,18 @@ appDiv.addEventListener('click', function () {
 
         const logonName = event.target.parentElement.querySelector('.logon-profile__name').value;
         const logonPassword = event.target.parentElement.querySelector('.logon-profile__password').value;
-
-        // var requestBody = {
-        //     name: logonName,
-        //     location: logonPassword
-        // }
-
+        const navButton = document.querySelector('.nav__myprofile');
 
         apiActions.getRequest(
             `https://localhost:44372/api/Profile/${logonName}/${logonPassword}`,
             profile => {
-                appDiv.innerHTML = ProfileEdit(profile);
+                    navButton.innerHTML = profile.name; 
+                    navButton.id = profile.id;
+                    if (profile.id != 100)
+                    ShowJams();
             }
         )
-
+        
     }
 })
 
