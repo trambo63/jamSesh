@@ -15,8 +15,7 @@ export default function JamDetails(jam) {
     <h3>Attendees</h3>
     ${jam.jamsAttending.map(jamAttendee => {
         return `
-        <h4>${jamAttendee.profileID}</h4>
-        
+        <h4>${jamAttendee.profileID}</h4>        
         `
     }).join("")} 
     </ul>

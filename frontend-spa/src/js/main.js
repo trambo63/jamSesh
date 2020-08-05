@@ -342,7 +342,7 @@ appDiv.addEventListener('click', function () {
         console.log("button clicked")
         //const addJamAttendeeSection = document.querySelector('.jam-addProfile');
         const jamId = event.target.id;
-        const profileId = event.target.parentElement.querySelector('.profiledetails__name').id;
+        const profileId = event.target.parentElement.querySelector('.jam__joinJam_button').id;
         //addJamAttendeeSection.innerHTML = JamDetails();
 
         var requestBody = {
@@ -356,7 +356,7 @@ appDiv.addEventListener('click', function () {
             requestBody,
             profileJams => {
                 console.log(profileJams);
-                //appDiv.innerHTML = jamDetails(jam);
+                appDiv.innerHTML = jamDetails(profileJams);
             }
         )
     }
