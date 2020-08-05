@@ -11,7 +11,7 @@ namespace JamSesh.Context
     {
         public DbSet<Jam> Jams { get; set; }
         public DbSet<Profile> Profiles { get; set; }
-        public DbSet<JamAttendees> JamAttendees { get; set; }
+        public DbSet<ProfileJam> ProfileJams { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,51 +23,56 @@ namespace JamSesh.Context
         }
 
 
-        private Jam CreateJam()
-        {
-
-            Jam myJam = new Jam
-            {
-                Id = 1,
-                Name = "Acoustic Rock in the Park",
-                Location = "6500 Cleveland Memorial Shoreway, Cleveland, OH 44102",
-                Description = "Need 2 more people to play some 80s Rock at Edgewater Park. Could use vocals and bass/guitar.",
-                EventDate = DateTime.Now,
-                MaxNumberOfAttendees = 3,
-                Image = "JamIcon.jpg",
-                ProfileId = 1
-            };
+        //private Jam CreateJam()
+        //{
 
 
-            //Profile myProfile = new Profile
-            //{
-            //    Id = 2,
-            //    Name = "Eddie",
-            //    Image = "DefaultProfilePhoto.jpg",
-            //    Instruments = "Keys, Acoustic Guitar, Vocals",
-            //    Description = "I like playing jazz standards in small trios",
-            //    Location = "7705 W Ridgewood Dr, Parma, OH 44129"
-            //};
-
-            //JamAttendees jamAttendees = new JamAttendees
-            //{
-            //    Id = 1
-            //};
-            //jamAttendees.Attendees.Add(myProfile);
-            //myJam.Attendees = jamAttendees;
-            return myJam;
 
 
-        }
+        //    Jam myJam = new Jam
+        //    {
+        //        Id = 1,
+        //        Name = "Acoustic Rock in the Park",
+        //        Location = "6500 Cleveland Memorial Shoreway, Cleveland, OH 44102",
+        //        Description = "Need 2 more people to play some 80s Rock at Edgewater Park. Could use vocals and bass/guitar.",
+        //        EventDate = DateTime.Now,
+        //        MaxNumberOfAttendees = 3,
+        //        Image = "JamIcon.jpg",
+        //        ProfileId = 1
+        //    };
+
+
+        //    //Profile myProfile = new Profile
+        //    //{
+        //    //    Id = 2,
+        //    //    Name = "Eddie",
+        //    //    Image = "DefaultProfilePhoto.jpg",
+        //    //    Instruments = "Keys, Acoustic Guitar, Vocals",
+        //    //    Description = "I like playing jazz standards in small trios",
+        //    //    Location = "7705 W Ridgewood Dr, Parma, OH 44129"
+        //    //};
+
+        //    //JamAttendees jamAttendees = new JamAttendees
+        //    //{
+        //    //    Id = 1
+        //    //};
+        //    //jamAttendees.Attendees.Add(myProfile);
+        //    //myJam.Attendees = jamAttendees;
+        //    return myJam;
+
+
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
+
+            modelbuilder.Entity<ProfileJam>().HasKey(sc => new { sc.ProfileID, sc.JamID });
 
             modelbuilder.Entity<Profile>().HasData(
 
             new Profile
             {
-                Id = 1,
+                ProfileId = 1,
                 Name = "Brandon",
                 Image = "DefaultProfilePhoto.jpg",
                 Instruments = "Bass, Drums",
@@ -78,7 +83,7 @@ namespace JamSesh.Context
 
             new Profile
             {
-                Id = 2,
+                ProfileId = 2,
                 Name = "Eddie",
                 Image = "DefaultProfilePhoto.jpg",
                 Instruments = "Keys, Acoustic Guitar, Vocals",
@@ -89,7 +94,7 @@ namespace JamSesh.Context
 
             new Profile
             {
-                Id = 3,
+                ProfileId = 3,
                 Name = "Neil",
                 Image = "DefaultProfilePhoto.jpg",
                 Instruments = "Mandalin, Guitar, Bass, Drums",
@@ -101,9 +106,31 @@ namespace JamSesh.Context
             );
 
             modelbuilder.Entity<Jam>().HasData(
-               CreateJam()
+                new Jam
+                {
+                    JamId = 1,
+                    Name = "Acoustic Rock in the Park",
+                    Location = "6500 Cleveland Memorial Shoreway, Cleveland, OH 44102",
+                    Description = "Need 2 more people to play some 80s Rock at Edgewater Park. Could use vocals and bass/guitar.",
+                    EventDate = DateTime.Now,
+                    MaxNumberOfAttendees = 3,
+                    Image = "JamIcon.jpg"
+
+
+                }
 
                 );
+
+
+            modelbuilder.Entity<ProfileJam>().HasData(
+               new ProfileJam
+               {
+                   ProfileID = 1,
+                   JamID = 1
+
+               }
+
+               );
         }
     }
 }

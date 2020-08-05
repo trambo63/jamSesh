@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace JamSesh.Repositories
 {
-    public class JamAttendeesRepository : Repository<JamAttendees>, IRepository<JamAttendees>
+    public class ProfileJamRepository : Repository<ProfileJam>, IRepository<ProfileJam>
     {
-        public JamAttendeesRepository(JamSeshContext context) : base(context)
+        public ProfileJamRepository(JamSeshContext context) : base(context)
         {
 
         }

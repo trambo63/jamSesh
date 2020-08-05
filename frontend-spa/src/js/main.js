@@ -118,7 +118,8 @@ appDiv.addEventListener("click", function () {
         instruments: profileInstruments,
         description: profileDescription,
         image: "dummy image",
-        id: profileId
+        profileId: profileId,
+        password: "Welcome"
       }
       console.log(requestBody);
   
@@ -225,7 +226,7 @@ appDiv.addEventListener("click", function () {
         eventDate: jamDate,
         maxNumberOfAttendees: jamAttendees,
         image: "dummy image",
-        id: jamId,
+        jamId: jamId,
         profileId: jamProfileId
       }
       console.log(requestBody);

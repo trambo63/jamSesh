@@ -4,14 +4,16 @@ using JamSesh.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JamSesh.Migrations
 {
     [DbContext(typeof(JamSeshContext))]
-    partial class JamSeshContextModelSnapshot : ModelSnapshot
+    [Migration("20200804152339_passwordmigration")]
+    partial class passwordmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +55,7 @@ namespace JamSesh.Migrations
                         {
                             JamId = 1,
                             Description = "Need 2 more people to play some 80s Rock at Edgewater Park. Could use vocals and bass/guitar.",
-                            EventDate = new DateTime(2020, 8, 4, 10, 8, 8, 129, DateTimeKind.Local).AddTicks(5679),
+                            EventDate = new DateTime(2020, 8, 4, 11, 23, 37, 798, DateTimeKind.Local).AddTicks(5838),
                             Image = "JamIcon.jpg",
                             Location = "6500 Cleveland Memorial Shoreway, Cleveland, OH 44102",
                             MaxNumberOfAttendees = 3,
@@ -133,18 +135,14 @@ namespace JamSesh.Migrations
                     b.Property<int>("JamID")
                         .HasColumnType("int");
 
+                    b.Property<int>("ProfileJamID")
+                        .HasColumnType("int");
+
                     b.HasKey("ProfileID", "JamID");
 
                     b.HasIndex("JamID");
 
                     b.ToTable("ProfileJams");
-
-                    b.HasData(
-                        new
-                        {
-                            ProfileID = 1,
-                            JamID = 1
-                        });
                 });
 
             modelBuilder.Entity("JamSesh.Models.ProfileJam", b =>

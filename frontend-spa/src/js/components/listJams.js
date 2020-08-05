@@ -6,11 +6,12 @@ export default function listJams(jams){
                 return `
                 
                 <section class="workout-style">
-                    <li><h3 class="jam__name" id="${jam.id}">name: ${jam.name}</h3>
+                    <li><h3 class="jam__name" id="${jam.jamId}">name: ${jam.name}</h3>
                     <li><h3>location: ${jam.location}</h3>
                     <li><h3>decription: ${jam.description}</h3>
-                    <li><h3>Date and time: <input type="datetime-local" value="${jam.eventDate}" readonly="readonly"></h3>
-                    <button class="jam-details__button" id="${jam.id}">Jam Details</button>
+                    <li><h3>Date and time: <input type="datetime-local" readonly value="2014-02-09">${jam.eventDate}</h3>
+                    <button class="jam-details__button" id="${jam.jamId}">Jam Details</button>
+
                     <img class="jam__name" src="images/${jam.image}" alt="${jam.image}" width="200" height="200"></img>
                 </a>
             </li>

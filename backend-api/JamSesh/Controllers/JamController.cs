@@ -50,7 +50,7 @@ namespace JamSesh.Controllers
         public Jam Put([FromBody] Jam value)
         {
             jamRepo.Update(value);
-            return jamRepo.GetById(value.Id);
+            return jamRepo.GetById(value.JamId);
         }
 
         // DELETE: api/ApiWithActions/5

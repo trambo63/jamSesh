@@ -6,11 +6,11 @@ export default function listProfiles(profiles){
                 return `
                 
                 <section class="workout-style">
-                    <li><h3 class="profiles__name" id="${profile.id}">name: ${profile.name}</h3>
+                    <li><h3 class="profiles__name" id="${profile.profileId}">name: ${profile.name}</h3>
                     <li><h3>location: ${profile.location}</h3>
                     <li><h3>instruments: ${profile.instruments}</h3>
                     <li><h3>description: ${profile.description}</h3>
-                    <button class="profile-details__button" id="${profile.id}">Profile Details</button>
+                    <button class="profile-details__button" id="${profile.profileId}">Profile Details</button>
                     <img class="profile__name" src="images/${profile.image}" alt="${profile.image}" width="200" height="200"></img>
                 </a>
             </li>

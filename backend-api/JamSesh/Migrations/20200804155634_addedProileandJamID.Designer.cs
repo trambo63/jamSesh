@@ -4,14 +4,16 @@ using JamSesh.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JamSesh.Migrations
 {
     [DbContext(typeof(JamSeshContext))]
-    partial class JamSeshContextModelSnapshot : ModelSnapshot
+    [Migration("20200804155634_addedProileandJamID")]
+    partial class addedProileandJamID
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +55,7 @@ namespace JamSesh.Migrations
                         {
                             JamId = 1,
                             Description = "Need 2 more people to play some 80s Rock at Edgewater Park. Could use vocals and bass/guitar.",
-                            EventDate = new DateTime(2020, 8, 4, 10, 8, 8, 129, DateTimeKind.Local).AddTicks(5679),
+                            EventDate = new DateTime(2020, 8, 4, 11, 56, 32, 999, DateTimeKind.Local).AddTicks(8634),
                             Image = "JamIcon.jpg",
                             Location = "6500 Cleveland Memorial Shoreway, Cleveland, OH 44102",
                             MaxNumberOfAttendees = 3,

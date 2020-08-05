@@ -6,6 +6,6 @@ export default function ProfileEdit(profile) {
 <input class="edit-profile__instruments" type="text" value="${profile.instruments}">
 <input class="edit-profile__image" type="text" hidden="true" value="${profile.image}">
 <input class="edit-profile__description" type="text" value="${profile.description}">
-<button class="edit-profile__submit" id="${profile.id}" value="${profile.id}">Update profile</button>
+<button class="edit-profile__submit" id="${profile.profileId}" value="${profile.profileId}">Update profile</button>
     `
 }
