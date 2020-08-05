@@ -347,7 +347,7 @@ appDiv.addEventListener('click', function () {
 
         var requestBody = {
             jamID: "1",
-            profileID: profileId
+            profileID: "3"
         }
         console.log(requestBody);
 
