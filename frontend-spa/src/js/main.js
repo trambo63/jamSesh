@@ -19,8 +19,6 @@ export default function pageBuild() {
     navHome();
     ShowJams();
     navJams();
-    ReadonlyDateTime();
-    initMap();
 }
 
 function navHome() {
@@ -33,11 +31,7 @@ function navHome() {
     myProfileButton.addEventListener('click', function () {
         appDiv.innerHTML = ProfileLogin();
     })
-    const mapButton = document.querySelector('.nav__map');
-    mapButton.addEventListener('click', function () {
-        console.log("map");
-        appDiv.innerHTML = Map();
-    })
+   
 }
 
 function ShowProfiles() {
@@ -59,6 +53,7 @@ function navJams() {
 }
 
 function ShowJams() {
+    console.log("jams");
     fetch("https://localhost:44372/api/Jam")
         .then(response => response.json())
         .then(jams => {
@@ -341,12 +336,3 @@ appDiv.addEventListener("click", function () {
     }
 })
 
-let map;
-
-function initMap() {
- console.log("map");
-  map = new google.maps.Map(document.getElementById('.nav__map'), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8
-  });
-}

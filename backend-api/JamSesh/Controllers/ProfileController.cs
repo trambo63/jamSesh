@@ -47,7 +47,7 @@ namespace JamSesh.Controllers
             {
                 profile = new Profile();
                 profile.Name = "invalid logon";
-                profile.Id = 100;
+                profile.ProfileId = 100;
 
 
             }
