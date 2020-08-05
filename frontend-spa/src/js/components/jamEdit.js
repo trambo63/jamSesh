@@ -7,6 +7,6 @@ export default function JamEdit(jam) {
 <input class="edit-jam__date" type="text" hidden="true" value="${jam.eventDate}">
 <input class="edit-jam__attendees" type="text" value="${jam.maxNumberOfAttendees}">
 <input class="edit-jam__profileId" type="text" hidden="true" value="${jam.profileId}">
-<button class="edit-jam__submit" id="${jam.id}" value="${jam.id}">Update Jam</button>
+<button class="edit-jam__submit" id="${jam.jamId}" value="${jam.jamId}">Update Jam</button>
     `
 }
