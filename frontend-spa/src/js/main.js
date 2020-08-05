@@ -336,3 +336,37 @@ appDiv.addEventListener("click", function () {
     }
 })
 
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('jam__joinJam_button')) {
+        console.log("button clicked")
+        //const addJamAttendeeSection = document.querySelector('.jam-addProfile');
+        const jamId = event.target.id;
+        const profileId = event.target.parentElement.querySelector('.profiledetails__name').id;
+        //addJamAttendeeSection.innerHTML = JamDetails();
+
+        var requestBody = {
+            jamID: "1",
+            profileID: profileId
+        }
+        console.log(requestBody);
+
+        apiActions.postRequest(
+            "https://localhost:44372/api/ProfileJam",
+            requestBody,
+            profileJams => {
+                console.log(profileJams);
+                //appDiv.innerHTML = jamDetails(jam);
+            }
+        )
+    }
+})
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('jam__leaveJam_button')) {
+        console.log("button clicked")
+        const addJamAttendeeSection = document.querySelector('.jam-addProfile');
+        addJamAttendeeSection.innerHTML = JamDetails();
+    }
+})
+
