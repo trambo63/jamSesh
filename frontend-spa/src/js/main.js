@@ -33,6 +33,11 @@ function navHome() {
     myProfileButton.addEventListener('click', function () {
         appDiv.innerHTML = ProfileLogin();
     })
+    const mapButton = document.querySelector('.nav__map');
+    mapButton.addEventListener('click', function () {
+        console.log("map");
+        appDiv.innerHTML = Map();
+    })
 }
 
 function ShowProfiles() {
@@ -338,7 +343,8 @@ appDiv.addEventListener("click", function () {
 let map;
 
 function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
+ console.log("map");
+  map = new google.maps.Map(document.getElementById('.nav__map'), {
     center: { lat: -34.397, lng: 150.644 },
     zoom: 8
   });
