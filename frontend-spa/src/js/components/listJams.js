@@ -11,6 +11,7 @@ export default function listJams(jams){
                     <li><h3>decription: ${jam.description}</h3>
                     <li><h3>Date and time: <input type="datetime-local" readonly value="2014-02-09">${jam.eventDate}</h3>
                     <button class="jam-details__button" id="${jam.jamId}">Jam Details</button>
+
                     <img class="jam__name" src="images/${jam.image}" alt="${jam.image}" width="200" height="200"></img>
                 </a>
             </li>

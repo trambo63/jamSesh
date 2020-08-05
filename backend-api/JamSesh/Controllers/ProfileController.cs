@@ -43,6 +43,15 @@ namespace JamSesh.Controllers
         {
             string valueInspector = userName + '\t' + password;
             Profile profile = profileRepo.GetAll().FirstOrDefault(x => x.Name == userName && x.Password == password);
+            if (profile == null)
+            {
+                profile = new Profile();
+                profile.Name = "invalid logon";
+                profile.Id = 100;
+
+
+            }
+
             return profile;
         }
 

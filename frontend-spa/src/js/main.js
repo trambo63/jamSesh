@@ -10,6 +10,7 @@ import JamDetails from "./components/jamDetails";
 import JamPost from "./components/jamPost";
 import JamEdit from "./components/jamEdit";
 import ProfileLogin from "./components/profileLogin";
+import Map from "./components/map";
 
 const appDiv = document.querySelector('#app');
 
@@ -18,6 +19,8 @@ export default function pageBuild() {
     navHome();
     ShowJams();
     navJams();
+    ReadonlyDateTime();
+    initMap();
 }
 
 function navHome() {
@@ -29,6 +32,11 @@ function navHome() {
     const myProfileButton = document.querySelector('.nav__myprofile');
     myProfileButton.addEventListener('click', function () {
         appDiv.innerHTML = ProfileLogin();
+    })
+    const mapButton = document.querySelector('.nav__map');
+    mapButton.addEventListener('click', function () {
+        console.log("map");
+        appDiv.innerHTML = Map();
     })
 }
 
@@ -270,7 +278,7 @@ appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('add-jam__button')) {
         const addJamSection = document.querySelector('.add-jam');
         addJamSection.innerHTML = JamPost();
-    }
+    } 
 })
 
 appDiv.addEventListener('click', function () {
@@ -278,20 +286,18 @@ appDiv.addEventListener('click', function () {
 
         const logonName = event.target.parentElement.querySelector('.logon-profile__name').value;
         const logonPassword = event.target.parentElement.querySelector('.logon-profile__password').value;
-
-        // var requestBody = {
-        //     name: logonName,
-        //     location: logonPassword
-        // }
-
+        const navButton = document.querySelector('.nav__myprofile');
 
         apiActions.getRequest(
             `https://localhost:44372/api/Profile/${logonName}/${logonPassword}`,
             profile => {
-                appDiv.innerHTML = ProfileEdit(profile);
+                    navButton.innerHTML = profile.name; 
+                    navButton.id = profile.id;
+                    if (profile.id != 100)
+                    ShowJams();
             }
         )
-
+        
     }
 })
 
@@ -334,3 +340,13 @@ appDiv.addEventListener("click", function () {
     )
     }
 })
+
+let map;
+
+function initMap() {
+ console.log("map");
+  map = new google.maps.Map(document.getElementById('.nav__map'), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
+}
