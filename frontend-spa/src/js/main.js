@@ -365,8 +365,21 @@ appDiv.addEventListener('click', function () {
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('jam__leaveJam_button')) {
         console.log("button clicked")
-        const addJamAttendeeSection = document.querySelector('.jam-addProfile');
-        addJamAttendeeSection.innerHTML = JamDetails();
+        const jamDetailsCallback = () => {
+            apiActions.getRequest(
+                `https://localhost:44372/api/ProfileJam/`,
+                profileJams => {
+                    console.log("before removed");
+                    appDiv.innerHTML = JamDetails(profileJams);
+                    console.log("after removed")
+                })
+        }
+
+
+        apiActions.deleteRequest(
+            `https://localhost:44372/api/Jam/${ProfileJamId}`,
+            jamDetailsCallback
+        )
     }
 })
 
