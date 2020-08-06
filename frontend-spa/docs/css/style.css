@@ -111,6 +111,7 @@ body {
   .navbar a:hover {
   
     background-color: #000;
+    color: red;
   
   }
   
@@ -136,4 +137,20 @@ body {
   
     text-decoration: none;
     
+  }
+
+  footer a{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    text-decoration: none;
+    padding: .5em;
+    background-color: #333333;
+    color: white;
+    border: 3px solid black;
+  }
+
+  footer a:hover {
+    background-color: black;
+    color: red;
   }
