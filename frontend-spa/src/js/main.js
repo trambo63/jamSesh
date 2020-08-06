@@ -384,6 +384,7 @@ appDiv.addEventListener('click', function () {
                 `https://localhost:44372/api/Jam/${jamId}`,
                 jam => {
                     console.log("before removed");
+                    console.log("jam id is " + jamId + " and profile id is " + profileId); 
                     appDiv.innerHTML = JamDetails(jam);
                     console.log("after removed");
                 })
