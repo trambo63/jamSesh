@@ -4,17 +4,21 @@ body {
   
     /* background-size: cover; */
   
-    /* background-color: #333333; */
+    background-color: red;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   
     color: black;
   
     box-sizing: border-box;
-    margin: 3em 250px 2em;
+    margin: 2em 290px 0;
     min-width: 500px;
   
   }
   
+  #JamSeshApp {
+    background-color: white;
+    padding: 2em;
+  }
    
   .workout-collection {
     margin: 1em 0;
