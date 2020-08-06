@@ -344,7 +344,7 @@ appDiv.addEventListener('click', function () {
         const jamId = event.target.id;
         const profileId = document.querySelector('.nav__myprofile').id;
         //addJamAttendeeSection.innerHTML = JamDetails();
-
+        
         var requestBody = {
             jamID: jamId,
             profileID: profileId
@@ -356,9 +356,17 @@ appDiv.addEventListener('click', function () {
             requestBody,
             profileJams => {
                 console.log(profileJams);
-                appDiv.innerHTML = jamDetails(profileJams);
+                apiActions.getRequest(
+                    `https://localhost:44372/api/Jam/${jamId}` ,
+                    jam => {
+                        console.log("in get request");
+                        console.log(jam);
+                        appDiv.innerHTML = JamDetails(jam);
+                    }
+                )
             }
-        )
+            )
+            
     }
 })
 
@@ -371,16 +379,14 @@ appDiv.addEventListener('click', function () {
         console.log("after profileId" + profileId);
         //profileIdundefined
 
-
-
-
-        const jamDetailsCallback = () => {
+        const jamDetailsCallback = ()=> {
             apiActions.getRequest(
-                `https://localhost:44372/api/ProfileJam/`,
-                profileJams => {
+                `https://localhost:44372/api/Jam/${jamId}`,
+                jam => {
                     console.log("before removed");
-                    appDiv.innerHTML = JamDetails(profileJams);
-                    console.log("after removed")
+                    console.log("jam id is " + jamId + " and profile id is " + profileId); 
+                    appDiv.innerHTML = JamDetails(jam);
+                    console.log("after removed");
                 })
         }
 

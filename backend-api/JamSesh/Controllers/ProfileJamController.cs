@@ -63,7 +63,7 @@ namespace JamSesh.Controllers
         }
 
         // DELETE: api/ApiWithActions/5/1
-        [HttpDelete("{id}")]
+        [HttpDelete("{jamId}/{profileId}")]
         public IEnumerable<ProfileJam> Delete(int jamId, int profileId)
         {
             ProfileJam profilejam = profileJamRepo.GetAll().FirstOrDefault(x => x.JamID == jamId && x.ProfileID == profileId);
