@@ -377,7 +377,7 @@ appDiv.addEventListener('click', function () {
 
 
         apiActions.deleteRequest(
-            `https://localhost:44372/api/Jam/${ProfileJamId}`,
+            `https://localhost:44372/api/ProfileJam/`,
             jamDetailsCallback
         )
     }
