@@ -18,6 +18,7 @@ export default function JamDetails(jam) {
         return `
         <h4>${jamAttendee.profile.name}</h4> 
         <h4>${jamAttendee.profile.instruments}</h4> 
+
         <button class="jam__leaveJam_button" id="${jam.jamId}">Leave Jam</button>
      
         `
