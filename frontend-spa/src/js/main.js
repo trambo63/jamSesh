@@ -344,7 +344,7 @@ appDiv.addEventListener('click', function () {
         const jamId = event.target.id;
         const profileId = document.querySelector('.nav__myprofile').id;
         //addJamAttendeeSection.innerHTML = JamDetails();
-
+        
         var requestBody = {
             jamID: jamId,
             profileID: profileId
