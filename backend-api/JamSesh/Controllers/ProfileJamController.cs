@@ -41,7 +41,7 @@ namespace JamSesh.Controllers
         public IEnumerable<ProfileJam> Post([FromBody] ProfileJam value)
         {
             profileJamRepo.Create(value);
-            return profileJamRepo.GetAll();
+            return profileJamRepo.GetAll().Where(x => x.JamID == value.JamID);
         }
 
         // PUT: api/JamAttendees/5
@@ -61,5 +61,16 @@ namespace JamSesh.Controllers
             profileJamRepo.Delete(profilejam);
             return profileJamRepo.GetAll();
         }
+
+        // DELETE: api/ApiWithActions/5/1
+        [HttpDelete("{id}")]
+        public IEnumerable<ProfileJam> Delete(int jamId, int profileId)
+        {
+            ProfileJam profilejam = profileJamRepo.GetAll().FirstOrDefault(x => x.JamID == jamId && x.ProfileID == profileId);
+
+            profileJamRepo.Delete(profilejam);
+            return profileJamRepo.GetAll().Where(x => x.JamID == jamId);
+        }
+
     }
 }

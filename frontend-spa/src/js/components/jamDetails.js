@@ -10,9 +10,18 @@ export default function JamDetails(jam) {
     <li>${jam.maxNumberOfAttendees}</li>
 
     <button class="delete-jam__button" id="${jam.jamId}" value="${jam.jamId}">Delete Jam</button>                   
-    <button class="jam__edit_button" id="${jam.jamId}" value="${jam.jamId}">Edit Jam</button>                   
-
-    
+    <button class="jam__edit_button" id="${jam.jamId}" value="${jam.jamId}">Edit Jam</button>   
+    <button class="jam__joinJam_button" id="${jam.jamId}">Join Jam</button>                
+    </section>
+    <h3>Attendees</h3>
+    ${jam.jamsAttending.map(jamAttendee => {
+        return `
+        <h4>${jamAttendee.profileID}</h4> 
+        <h4>${jamAttendee.profile.name}</h4> 
+        <button class="jam__leaveJam_button" id="${jam.jamId}">Leave Jam</button>
+     
+        `
+    }).join("")} 
     
     `
 }

@@ -287,8 +287,8 @@ appDiv.addEventListener('click', function () {
             `https://localhost:44372/api/Profile/${logonName}/${logonPassword}`,
             profile => {
                     navButton.innerHTML = profile.name; 
-                    navButton.id = profile.id;
-                    if (profile.id != 100)
+                    navButton.id = profile.profileId;
+                    if (profile.profileId != 100)
                     ShowJams();
             }
         )
@@ -333,6 +333,62 @@ appDiv.addEventListener("click", function () {
             appDiv.innerHTML = ListJams(jams);
         }
     )
+    }
+})
+
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('jam__joinJam_button')) {
+        console.log("button clicked")
+        //const addJamAttendeeSection = document.querySelector('.jam-addProfile');
+        const jamId = event.target.id;
+        const profileId = document.querySelector('.nav__myprofile').id;
+        //addJamAttendeeSection.innerHTML = JamDetails();
+
+        var requestBody = {
+            jamID: jamId,
+            profileID: profileId
+        }
+        console.log(requestBody);
+
+        apiActions.postRequest(
+            "https://localhost:44372/api/ProfileJam",
+            requestBody,
+            profileJams => {
+                console.log(profileJams);
+                appDiv.innerHTML = jamDetails(profileJams);
+            }
+        )
+    }
+})
+
+appDiv.addEventListener('click', function () {
+    if (event.target.classList.contains('jam__leaveJam_button')) {
+        console.log("button clicked");
+        const jamId = event.target.parentElement.querySelector('.delete-jam__button').id;
+        console.log("after jamId");
+        const profileId = document.querySelector('.nav__myprofile').id;
+        console.log("after profileId" + profileId);
+        //profileIdundefined
+
+
+
+
+        const jamDetailsCallback = () => {
+            apiActions.getRequest(
+                `https://localhost:44372/api/ProfileJam/`,
+                profileJams => {
+                    console.log("before removed");
+                    appDiv.innerHTML = JamDetails(profileJams);
+                    console.log("after removed")
+                })
+        }
+
+
+        apiActions.deleteRequest(
+            `https://localhost:44372/api/ProfileJam/${jamId}/${profileId}`,
+            jamDetailsCallback
+        )
     }
 })
 
