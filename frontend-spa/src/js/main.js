@@ -356,9 +356,17 @@ appDiv.addEventListener('click', function () {
             requestBody,
             profileJams => {
                 console.log(profileJams);
-                appDiv.innerHTML = jamDetails(profileJams);
+                apiActions.getRequest(
+                    `https://localhost:44372/api/Jam/${jamId}` ,
+                    jam => {
+                        console.log("in get request");
+                        console.log(jam);
+                        appDiv.innerHTML = JamDetails(jam);
+                    }
+                )
             }
-        )
+            )
+            
     }
 })
 
