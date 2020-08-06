@@ -14,12 +14,57 @@ import Map from "./components/map";
 
 const appDiv = document.querySelector('#app');
 
+function initMap() {
+    
+    console.log("entered initmap");
+    let map = new google.maps.Map(document.getElementById("map"), {
+      center: {
+        lat: 41.140179,
+        lng: -81.863589
+      },
+      zoom: 12
+    });
+ 
+    const myLatLng = {
+        lat: 41.140179,
+        lng: -81.863589
+      };
+ 
+      const myLatLng2 = {
+        lat: 41.040179,
+        lng: -81.863589
+      };
+ 
+    new google.maps.Marker({
+        position: myLatLng,
+        map,
+        title: "Jam Session"
+      });
+ 
+      new google.maps.Marker({
+        position: myLatLng2,
+        map,
+        title: "Jam Session 2"
+      });
+    
+ 
+      var position1 = { lat: 41.040179, lng: -81.843589};
+      new google.maps.Marker({
+        position: position1,
+        map,
+        title: "Jam Session 3"
+      });
+     
+    }
+ 
 export default function pageBuild() {
     ShowProfiles();
     navHome();
     ShowJams();
     navJams();
+    initMap();
 }
+
 
 function navHome() {
     const homeButton = document.querySelector('.nav__profiles');
