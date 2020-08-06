@@ -287,8 +287,8 @@ appDiv.addEventListener('click', function () {
             `https://localhost:44372/api/Profile/${logonName}/${logonPassword}`,
             profile => {
                     navButton.innerHTML = profile.name; 
-                    navButton.id = profile.id;
-                    if (profile.id != 100)
+                    navButton.id = profile.profileId;
+                    if (profile.profileId != 100)
                     ShowJams();
             }
         )
@@ -342,12 +342,12 @@ appDiv.addEventListener('click', function () {
         console.log("button clicked")
         //const addJamAttendeeSection = document.querySelector('.jam-addProfile');
         const jamId = event.target.id;
-        const profileId = event.target.parentElement.querySelector('.jam__joinJam_button').id;
+        const profileId = document.querySelector('.nav__myprofile').id;
         //addJamAttendeeSection.innerHTML = JamDetails();
 
         var requestBody = {
-            jamID: "1",
-            profileID: "3"
+            jamID: jamId,
+            profileID: profileId
         }
         console.log(requestBody);
 
