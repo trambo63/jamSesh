@@ -16,8 +16,8 @@ export default function JamDetails(jam) {
     <h3>Attendees</h3>
     ${jam.jamsAttending.map(jamAttendee => {
         return `
-        <h4>${jamAttendee.profileID}</h4> 
         <h4>${jamAttendee.profile.name}</h4> 
+        <h4>${jamAttendee.profile.instruments}</h4> 
         <button class="jam__leaveJam_button" id="${jam.jamId}">Leave Jam</button>
      
         `

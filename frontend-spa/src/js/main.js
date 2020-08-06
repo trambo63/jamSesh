@@ -379,23 +379,20 @@ appDiv.addEventListener('click', function () {
         console.log("after profileId" + profileId);
         //profileIdundefined
 
-
-
-
-        const jamDetailsCallback = () => {
+        const jamDetailsCallback = ()=> {
             apiActions.getRequest(
-                `https://localhost:44372/api/ProfileJam/`,
-                profileJams => {
+                `https://localhost:44372/api/Jam/${jamId}`,
+                jam => {
                     console.log("before removed");
-                    appDiv.innerHTML = JamDetails(profileJams);
-                    console.log("after removed")
+                    appDiv.innerHTML = JamDetails(jam);
+                    console.log("after removed");
                 })
         }
 
 
         apiActions.deleteRequest(
             `https://localhost:44372/api/ProfileJam/${jamId}/${profileId}`,
-            jamDetailsCallback
+            jamDetailsCallback()
         )
     }
 })
