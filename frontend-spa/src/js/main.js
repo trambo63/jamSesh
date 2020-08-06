@@ -364,7 +364,16 @@ appDiv.addEventListener('click', function () {
 
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('jam__leaveJam_button')) {
-        console.log("button clicked")
+        console.log("button clicked");
+        const jamId = event.target.parentElement.querySelector('.delete-jam__button').id;
+        console.log("after jamId");
+        const profileId = document.querySelector('.nav__myprofile').id;
+        console.log("after profileId" + profileId);
+        //profileIdundefined
+
+
+
+
         const jamDetailsCallback = () => {
             apiActions.getRequest(
                 `https://localhost:44372/api/ProfileJam/`,
@@ -377,7 +386,7 @@ appDiv.addEventListener('click', function () {
 
 
         apiActions.deleteRequest(
-            `https://localhost:44372/api/ProfileJam/`,
+            `https://localhost:44372/api/ProfileJam/${jamId}/${profileId}`,
             jamDetailsCallback
         )
     }
