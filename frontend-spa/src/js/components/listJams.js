@@ -12,7 +12,7 @@ export default function listJams(jams){
                     <li><h3>When: <input type="datetime-local" readonly="readonly" value="${jam.eventDate}"></h3>
                     <button class="jam-details__button" id="${jam.jamId}">Jam Details</button>
 
-                    <img class="jam__name" src="images/${jam.image}" alt="${jam.image}" width="200" height="200"></img>
+                    <img class="jam__name" src="images/jamIcon.png" alt="${jam.image}" width="25px" height="25px"></img>
                 </a>
             </li>
         </section>
