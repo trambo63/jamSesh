@@ -1,11 +1,11 @@
 export default function listJams(jams){
     return `
             
-        <ul class="workout-collection">
+        <ul class="info-collection">
             ${jams.map(jam => {
                 return `
                 
-                <section class="workout-style">
+                <section class="info-details">
                     <li><h3 class="jam__name" id="${jam.jamId}">Title: ${jam.name}</h3>
                     <li><div>${jam.description}</div>
                     <li><h3>Where: ${jam.location}</h3>
