@@ -11,7 +11,7 @@ export default function listProfiles(profiles){
                     <li><h3>Instruments: ${profile.instruments}</h3>
                     <li><h3>Bio: ${profile.description}</h3>
                     <button class="profile-details__button" id="${profile.profileId}">Profile Details</button>
-                    <img class="profile__name" src="images/${profile.image}" alt="${profile.image}" width="200" height="200"></img>
+                    <img class="profile__name" src="images/profilephoto.png" alt="${profile.image}" width="25px" height="25px"></img>
                 </a>
             </li>
         </section>
