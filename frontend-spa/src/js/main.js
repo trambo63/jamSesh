@@ -260,7 +260,7 @@ appDiv.addEventListener("click", function () {
       const jamDescription = event.target.parentElement.querySelector('.edit-jam__description').value;
       const jamDate = event.target.parentElement.querySelector('.edit-jam__date').value;
       const jamAttendees = event.target.parentElement.querySelector('.edit-jam__attendees').value;
-      const jamProfileId = event.target.parentElement.querySelector('.edit-jam__profileId').value;
+      //const jamProfileId = event.target.parentElement.querySelector('.edit-jam__profileId').value;
       console.log("jam edit is here");
       const jamId = event.target.parentElement.querySelector('.edit-jam__submit').id;
         console.log("the jam id is " + jamId );
@@ -273,18 +273,37 @@ appDiv.addEventListener("click", function () {
         eventDate: jamDate,
         maxNumberOfAttendees: jamAttendees,
         image: "dummy image",
-        jamId: jamId,
-        profileId: jamProfileId
+        jamId: jamId
       }
-      console.log(requestBody);
+      console.log(requestBody)
   
-      apiActions.putRequest(
-        `https://localhost:44372/api/Jam/${jamId}`,
-        requestBody,
-        jam => {
-            appDiv.innerHTML = JamDetails(jam);
-        }
-    )
+          apiActions.putRequest(
+            `https://localhost:44372/api/Jam/${jamId}`,
+            requestBody,
+            jam => {
+                appDiv.innerHTML = JamDetails(jam);
+            }
+          )
+            
+        
+
+        // const jamDetailsCallback = ()=> {
+        //     apiActions.getRequest(
+        //         `https://localhost:44372/api/ProfileJam/${jamId}`,
+        //         jam => {
+        //             console.log("before removed");
+        //             console.log("jam id is " + jamId + " and profile id is " + jamProfileId); 
+        //             appDiv.innerHTML = JamDetails(jam);
+        //             console.log("after removed");
+        //         })
+        // }
+
+
+        // apiActions.putRequest(
+        //     `https://localhost:44372/api/ProfileJam/${jamId}`,
+        //     jamDetailsCallback()
+        // )
+    
     }
 })
 
@@ -402,22 +421,35 @@ appDiv.addEventListener('click', function () {
             profileID: profileId
         }
         console.log(requestBody);
+        console.log(profileId);
+        if(profileId == "0"){
+            window.alert("not logged in")
+        }
+        else{
 
-        apiActions.postRequest(
-            "https://localhost:44372/api/ProfileJam",
-            requestBody,
-            profileJams => {
-                console.log(profileJams);
-                apiActions.getRequest(
-                    `https://localhost:44372/api/Jam/${jamId}` ,
-                    jam => {
-                        console.log("in get request");
-                        console.log(jam);
-                        appDiv.innerHTML = JamDetails(jam);
-                    }
+            console.log("after if")
+            apiActions.postRequest(
+                "https://localhost:44372/api/ProfileJam",
+                requestBody,
+                profileJams => {
+                    console.log(profileJams);
+                    apiActions.getRequest(
+                        `https://localhost:44372/api/Jam/${jamId}` ,
+                        jam => {
+                            console.log("in get request");
+                            console.log(jam);
+                            appDiv.innerHTML = JamDetails(jam);
+                        }
+                    )
+                }
                 )
-            }
-            )
+
+
+
+
+        }
+
+
             
     }
 })

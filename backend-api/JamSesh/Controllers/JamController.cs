@@ -49,7 +49,12 @@ namespace JamSesh.Controllers
         [HttpPut("{id}")]
         public Jam Put([FromBody] Jam value)
         {
-            jamRepo.Update(value);
+            Jam existingJam = jamRepo.GetById(value.JamId);
+            existingJam.Description = value.Description;
+            existingJam.MaxNumberOfAttendees = value.MaxNumberOfAttendees;
+            existingJam.EventDate = value.EventDate;
+
+            jamRepo.Update(existingJam);
             return jamRepo.GetById(value.JamId);
         }
 

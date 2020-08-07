@@ -40,7 +40,13 @@ namespace JamSesh.Controllers
         [HttpPost]
         public IEnumerable<ProfileJam> Post([FromBody] ProfileJam value)
         {
-            profileJamRepo.Create(value);
+
+            int existingItemCount = profileJamRepo.GetAll().Count(x => x.JamID == value.JamID && x.ProfileID == value.ProfileID);
+            bool alreadyExists = existingItemCount > 0;
+
+            if (!alreadyExists)
+                profileJamRepo.Create(value);
+
             return profileJamRepo.GetAll().Where(x => x.JamID == value.JamID);
         }
 
