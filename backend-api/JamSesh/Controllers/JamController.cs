@@ -49,8 +49,14 @@ namespace JamSesh.Controllers
         [HttpPut("{id}")]
         public Jam Put([FromBody] Jam value)
         {
+
+            Jam myInspector = value;
+
+            // How do we refresh so our list is returned?
             jamRepo.Update(value);
-            return jamRepo.GetById(value.JamId);
+            myInspector = jamRepo.GetById(value.JamId);
+
+            return myInspector;
         }
 
         // DELETE: api/ApiWithActions/5

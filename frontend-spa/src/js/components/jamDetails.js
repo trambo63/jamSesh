@@ -23,6 +23,7 @@ export default function JamDetails(jam) {
      
         `
     }).join("")} 
+   
     
     `
 }
