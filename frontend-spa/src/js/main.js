@@ -13,13 +13,59 @@ import ProfileLogin from "./components/profileLogin";
 import Map from "./components/map";
 
 const appDiv = document.querySelector('#app');
+const mapDiv = document.querySelector("#map");
 
+function initMap() {
+    
+    console.log("entered initmap");
+    let map = new google.maps.Map(document.getElementById("map"), {
+      center: {
+        lat: 41.140179,
+        lng: -81.863589
+      },
+      zoom: 12
+    });
+ 
+    const myLatLng = {
+        lat: 41.140179,
+        lng: -81.863589
+      };
+ 
+      const myLatLng2 = {
+        lat: 41.040179,
+        lng: -81.863589
+      };
+ 
+    new google.maps.Marker({
+        position: myLatLng,
+        map,
+        title: "Jam Session"
+      });
+ 
+      new google.maps.Marker({
+        position: myLatLng2,
+        map,
+        title: "Jam Session 2"
+      });
+    
+ 
+      var position1 = { lat: 41.040179, lng: -81.843589};
+      new google.maps.Marker({
+        position: position1,
+        map,
+        title: "Jam Session 3"
+      });
+     
+    }
+ 
 export default function pageBuild() {
     ShowProfiles();
     navHome();
     ShowJams();
     navJams();
+    initMap();
 }
+
 
 function navHome() {
     const homeButton = document.querySelector('.nav__profiles');
@@ -163,6 +209,12 @@ appDiv.addEventListener('click', function () {
         )
     }
 })
+
+// appDiv.addEventListener('click', ()=> {
+//     if (event.target.classList.contains('nav__myprofile')) {
+//         mapDiv.classList.add("hidden");
+//     }
+// })
 
 appDiv.addEventListener('click', function(){
     if(event.target.classList.contains('delete-profile__button')){

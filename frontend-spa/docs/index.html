@@ -1,23 +1,36 @@
-  
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Jam Sesh</title>
-    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
-           <div class="navbar">
-          <a class="nav__jams" href="#">Jams</a> 
-          <a class="nav__profiles" href="#">Profiles</a>
-          <a id="0" class="nav__myprofile" href="#">My Profile</a>
-        </div>
-        
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jam Sesh</title>
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  
 </head>
 
 <body>
+
+  <div class="navbar">
+    <a class="nav__jams" href="#">Jams</a>
+    <a class="nav__profiles" href="#">Profiles</a>
+    <a id="0" class="nav__myprofile" href="#">My Profile</a>
+  </div>
+  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8RIP4S4yNnM_zR_Ge2-LhfpetIlnDxk8&callback=initMap&libraries=&v=weekly"></script>
+  
+  <section id="JamSeshApp">
+    <div id="map" class="" style="width: auto; height: 400px;"></div>
     <div id="app"></div>
-    <div id="map"></div>
-    <script src="main.js"></script>
+  </section>
+
+  <script src="main.js"></script>
 </body>
+
+<footer>
+  <a href="#JamSeshApp">Back to Top</a>
+</footer>
+
 </html>
