@@ -50,6 +50,7 @@ namespace JamSesh.Controllers
         public Jam Put([FromBody] Jam value)
         {
             Jam existingJam = jamRepo.GetById(value.JamId);
+            existingJam.Name = value.Name;
             existingJam.Description = value.Description;
             existingJam.MaxNumberOfAttendees = value.MaxNumberOfAttendees;
             existingJam.EventDate = value.EventDate;
