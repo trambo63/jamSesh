@@ -281,6 +281,7 @@ appDiv.addEventListener("click", function () {
             `https://localhost:44372/api/Jam/${jamId}`,
             requestBody,
             jam => {
+                console.log("in put")
                 appDiv.innerHTML = JamDetails(jam);
             }
           )
@@ -462,23 +463,32 @@ appDiv.addEventListener('click', function () {
         const profileId = document.querySelector('.nav__myprofile').id;
         console.log("after profileId" + profileId);
         //profileIdundefined
+        if(profileId == "0"){
+            window.alert("not logged in")
+        }
+        else{
+            console.log("after If")
 
-        const jamDetailsCallback = ()=> {
-            apiActions.getRequest(
-                `https://localhost:44372/api/Jam/${jamId}`,
-                jam => {
-                    console.log("before removed");
-                    console.log("jam id is " + jamId + " and profile id is " + profileId); 
-                    appDiv.innerHTML = JamDetails(jam);
-                    console.log("after removed");
-                })
+            const jamDetailsCallback = ()=> {
+                apiActions.getRequest(
+                    `https://localhost:44372/api/Jam/${jamId}`,
+                    jam => {
+                        console.log("before removed");
+                        console.log("jam id is " + jamId + " and profile id is " + profileId); 
+                        appDiv.innerHTML = JamDetails(jam);
+                        console.log("after removed");
+                    })
+            }
+    
+    
+            apiActions.deleteRequest(
+                `https://localhost:44372/api/ProfileJam/${jamId}/${profileId}`,
+                jamDetailsCallback
+            )
         }
 
 
-        apiActions.deleteRequest(
-            `https://localhost:44372/api/ProfileJam/${jamId}/${profileId}`,
-            jamDetailsCallback
-        )
+
     }
 })
 
