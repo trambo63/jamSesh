@@ -176,13 +176,20 @@ appDiv.addEventListener("click", function () {
 
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('profile__edit_button')) {
-        const profileId = event.target.parentElement.querySelector('.profile__edit_button').id;
-        apiActions.getRequest(
-            `https://localhost:44372/api/Profile/${profileId}` ,
-            profile => {
-                appDiv.innerHTML = ProfileEdit(profile);
-            }
-        )
+        //const profileId = event.target.parentElement.querySelector('.profile__edit_button').id;
+        const profileId = document.querySelector('.nav__myprofile').id;
+        if(profileId == "0"){
+            window.alert("not logged in")
+        }
+        else{
+
+            apiActions.getRequest(
+                `https://localhost:44372/api/Profile/${profileId}` ,
+                profile => {
+                    appDiv.innerHTML = ProfileEdit(profile);
+                }
+            )
+        }
     }
 })
 
@@ -218,22 +225,28 @@ appDiv.addEventListener('click', function () {
 
 appDiv.addEventListener('click', function(){
     if(event.target.classList.contains('delete-profile__button')){
-        const profileId = event.target.parentElement.querySelector('.delete-profile__button').id;
-        
-        const profileCallback = () => {
-            apiActions.getRequest(
-                `https://localhost:44372/api/Profile/`,
-                profiles => {
-                    console.log("before listing profiles");
-                    appDiv.innerHTML = ListProfiles(profiles);
-                    console.log("after listing profiles")
-                })
+        //const profileId = event.target.parentElement.querySelector('.delete-profile__button').id;
+        const profileId = document.querySelector('.nav__myprofile').id;
+        if(profileId == "0"){
+            window.alert("not logged in")
         }
+        else{
 
-        apiActions.deleteRequest(
-            `https://localhost:44372/api/Profile/${profileId}`,
-            profileCallback
-        )
+            const profileCallback = () => {
+                apiActions.getRequest(
+                    `https://localhost:44372/api/Profile/`,
+                    profiles => {
+                        console.log("before listing profiles");
+                        appDiv.innerHTML = ListProfiles(profiles);
+                        console.log("after listing profiles")
+                    })
+            }
+    
+            apiActions.deleteRequest(
+                `https://localhost:44372/api/Profile/${profileId}`,
+                profileCallback
+            )
+        }
     }
 })
 
@@ -285,25 +298,6 @@ appDiv.addEventListener("click", function () {
                 appDiv.innerHTML = JamDetails(jam);
             }
           )
-            
-        
-
-        // const jamDetailsCallback = ()=> {
-        //     apiActions.getRequest(
-        //         `https://localhost:44372/api/ProfileJam/${jamId}`,
-        //         jam => {
-        //             console.log("before removed");
-        //             console.log("jam id is " + jamId + " and profile id is " + jamProfileId); 
-        //             appDiv.innerHTML = JamDetails(jam);
-        //             console.log("after removed");
-        //         })
-        // }
-
-
-        // apiActions.putRequest(
-        //     `https://localhost:44372/api/ProfileJam/${jamId}`,
-        //     jamDetailsCallback()
-        // )
     
     }
 })
@@ -311,40 +305,61 @@ appDiv.addEventListener("click", function () {
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('jam__edit_button')) {
         const jamId = event.target.parentElement.querySelector('.jam__edit_button').id;
-        apiActions.getRequest(
-            `https://localhost:44372/api/Jam/${jamId}` ,
-            jam => {
-                appDiv.innerHTML = JamEdit(jam);
-            }
-        )
+        const profileId = document.querySelector('.nav__myprofile').id;
+        if(profileId == "0"){
+            window.alert("not logged in")
+        }
+        else{
+
+            apiActions.getRequest(
+                `https://localhost:44372/api/Jam/${jamId}` ,
+                jam => {
+                    appDiv.innerHTML = JamEdit(jam);
+                }
+            )
+
+        }
     }
 })
 
 appDiv.addEventListener('click', function(){
     if(event.target.classList.contains('delete-jam__button')){
         const jamId = event.target.parentElement.querySelector('.delete-jam__button').id;
-        
-        const jamCallback = () => {
-            apiActions.getRequest(
-                `https://localhost:44372/api/Jam/`,
-                jams => {
-                    console.log("before listing jams");
-                    appDiv.innerHTML = ListJams(jams);
-                    console.log("after listing jams")
-                })
+        const profileId = document.querySelector('.nav__myprofile').id;
+        if(profileId == "0"){
+            window.alert("not logged in")
         }
+        else{
 
-        apiActions.deleteRequest(
-            `https://localhost:44372/api/Jam/${jamId}`,
-            jamCallback
-        )
+            const jamCallback = () => {
+                apiActions.getRequest(
+                    `https://localhost:44372/api/Jam/`,
+                    jams => {
+                        console.log("before listing jams");
+                        appDiv.innerHTML = ListJams(jams);
+                        console.log("after listing jams")
+                    })
+            }
+    
+            apiActions.deleteRequest(
+                `https://localhost:44372/api/Jam/${jamId}`,
+                jamCallback
+            )
+        }
     }
 })
 
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('add-jam__button')) {
         const addJamSection = document.querySelector('.add-jam');
-        addJamSection.innerHTML = JamPost();
+        const profileId = document.querySelector('.nav__myprofile').id;
+        if(profileId == "0"){
+            window.alert("not logged in")
+        }
+        else{
+
+            addJamSection.innerHTML = JamPost();
+        }
     } 
 })
 
