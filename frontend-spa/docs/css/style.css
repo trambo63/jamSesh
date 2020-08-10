@@ -117,8 +117,8 @@ body {
   .navbar img {
     display: flex;
     justify-content: center;
-    padding-left: 300px;
-    padding-right: 125px;
+    padding-left: 200px;
+    padding-right: 50px;
   }
   
   .navbar a:hover {
