@@ -226,7 +226,7 @@ appDiv.addEventListener("click", function () {
         requestBody,
         profile => {
             appDiv.innerHTML = ProfileDetails(profile);
-        }
+        })
         console.log(requestBody);
 
         apiActions.putRequest(
