@@ -107,9 +107,6 @@ function toggleMapOn() {
         if (displaySetting == "none") {
             mapDiv.style.display = "block";
         }
-        else {
-            mapDiv.style.display = "none";
-        }
     })
 }
 
