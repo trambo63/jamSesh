@@ -161,7 +161,7 @@ appDiv.addEventListener("click", function () {
         location: profileLocation,
         instruments: profileInstruments,
         description: profileDescription,
-        password: profilePassword,
+        //password: profilePassword,
         image: "dummy image",
         profileId: profileId,
         password: "Welcome"
@@ -179,7 +179,7 @@ appDiv.addEventListener("click", function () {
 })
 
 appDiv.addEventListener('click', function () {
-    if (event.target.classList.contains('profile__edit_button')) {
+    if (event.target.classList.contains('profile-edit__button')) {
         //const profileId = event.target.parentElement.querySelector('.profile__edit_button').id;
         const profileId = document.querySelector('.nav__myprofile').id;
         if(profileId == "0"){
