@@ -282,7 +282,6 @@ appDiv.addEventListener('click', function () {
     }
 })
 
-
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('delete-profile__button')) {
         //const profileId = event.target.parentElement.querySelector('.delete-profile__button').id;
