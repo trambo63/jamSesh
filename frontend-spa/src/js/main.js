@@ -13,7 +13,7 @@ import ProfileLogin from "./components/profileLogin";
 import Map from "./components/map";
 
 const appDiv = document.querySelector('#app');
-const mapDiv = document.querySelector("#map");
+const mapDiv = document.querySelector(".map");
 
 function initMap() {
     
@@ -221,11 +221,11 @@ appDiv.addEventListener('click', function () {
     }
 })
 
-// appDiv.addEventListener('click', ()=> {
-//     if (event.target.classList.contains('nav__myprofile')) {
-//         mapDiv.classList.add("hidden");
-//     }
-// })
+appDiv.addEventListener('click', ()=> {
+    if (event.target.classList.contains('nav__myprofile')) {
+        mapDiv.classList.add("hidden");
+    }
+})
 
 appDiv.addEventListener('click', function(){
     if(event.target.classList.contains('delete-profile__button')){
