@@ -122,6 +122,7 @@ appDiv.addEventListener("click", function () {
       const profileLocation = event.target.parentElement.querySelector('.add-profile__location').value;
       const profileInstruments = event.target.parentElement.querySelector('.add-profile__instruments').value;
       const profileDescription = event.target.parentElement.querySelector('.add-profile__description').value;
+      const profilePassword = event.target.parentElement.querySelector('.add-profile__password').value;
       console.log("edit")
   
       var requestBody = {
@@ -129,6 +130,7 @@ appDiv.addEventListener("click", function () {
         location: profileLocation,
         instruments: profileInstruments,
         description: profileDescription,
+        password: profilePassword,
         image: "dummy image"
       }
       console.log(requestBody);
@@ -149,6 +151,7 @@ appDiv.addEventListener("click", function () {
       const profileLocation = event.target.parentElement.querySelector('.edit-profile__location').value;
       const profileInstruments = event.target.parentElement.querySelector('.edit-profile__instruments').value;
       const profileDescription = event.target.parentElement.querySelector('.edit-profile__description').value;
+      const profilePassword = event.target.parentElement.querySelector('.edit-profile__password').value;
       console.log("is here");
       const profileId = event.target.parentElement.querySelector('.edit-profile__submit').id;
         console.log("the profile id is " + profileId );
@@ -158,6 +161,7 @@ appDiv.addEventListener("click", function () {
         location: profileLocation,
         instruments: profileInstruments,
         description: profileDescription,
+        password: profilePassword,
         image: "dummy image",
         profileId: profileId,
         password: "Welcome"
