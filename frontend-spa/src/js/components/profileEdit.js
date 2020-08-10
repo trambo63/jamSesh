@@ -1,12 +1,12 @@
 export default function ProfileEdit(profile) {
     return `
   
-<input class="edit-profile__name" type="text" value="${profile.name}">
-<input class="edit-profile__location" type="text" value="${profile.location}">
-<input class="edit-profile__instruments" type="text" value="${profile.instruments}">
-<input class="edit-profile__image" type="text" hidden="true" value="${profile.image}">
-<input class="edit-profile__description" type="text" value="${profile.description}">
-<input class="edit-profile__password" type="text" placeholder="Your Password">
+    <h2>Username: <input class="edit-profile__name" type="text" value="${profile.name}"></h2>  
+    <h4><a class="profiledetails__name" id="${profile.profileId}" href="#"> <img src="images/profilephoto.png" alt="${profile.name}" width="200" height="200"></a></h4>
+    <h4>From: <input class="edit-profile__location" type="text" value="${profile.location}"></h4>
+    <h4>Instruments: <input class="edit-profile__instruments" type="text" value="${profile.instruments}"></h4>
+    <h4>Bio: <input class="edit-profile__description" type="text" value="${profile.description}"</h4>
+
 <button class="edit-profile__submit" id="${profile.profileId}" value="${profile.profileId}">Update profile</button>
     `
 }
