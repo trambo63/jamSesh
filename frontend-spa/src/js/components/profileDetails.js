@@ -8,7 +8,7 @@ export default function ProfileDetails(profile) {
     <h4>Instruments: ${profile.instruments}</h4>
     <div><h4>Bio: </h4>${profile.description}</div>
     <button class="delete-profile__button" id="${profile.profileId}" value="${profile.profileId}">Delete Profile</button>                   
-    <button class="profile__edit_button" id="${profile.profileId}" value="${profile.profileId}">Edit Profile</button>                   
+    <button class="profile-edit__button" id="${profile.profileId}" value="${profile.profileId}">Edit Profile</button>                   
 
     
     `

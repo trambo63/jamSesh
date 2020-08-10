@@ -200,24 +200,32 @@ appDiv.addEventListener("click", function () {
 
 appDiv.addEventListener("click", function () {
     if (event.target.classList.contains('edit-profile__submit')) {
-        const profileName = event.target.parentElement.querySelector('.edit-profile__name').value;
-        const profileLocation = event.target.parentElement.querySelector('.edit-profile__location').value;
-        const profileInstruments = event.target.parentElement.querySelector('.edit-profile__instruments').value;
-        const profileDescription = event.target.parentElement.querySelector('.edit-profile__description').value;
-        const profilePassword = event.target.parentElement.querySelector('.edit-profile__password').value;
-        console.log("is here");
-        const profileId = event.target.parentElement.querySelector('.edit-profile__submit').id;
-        console.log("the profile id is " + profileId);
-
-        var requestBody = {
-            name: profileName,
-            location: profileLocation,
-            instruments: profileInstruments,
-            description: profileDescription,
-            password: profilePassword,
-            image: "dummy image",
-            profileId: profileId,
-            password: "Welcome"
+      const profileName = event.target.parentElement.querySelector('.edit-profile__name').value;
+      const profileLocation = event.target.parentElement.querySelector('.edit-profile__location').value;
+      const profileInstruments = event.target.parentElement.querySelector('.edit-profile__instruments').value;
+      const profileDescription = event.target.parentElement.querySelector('.edit-profile__description').value;
+      //const profilePassword = event.target.parentElement.querySelector('.edit-profile__password').value;
+      console.log("is here");
+      const profileId = event.target.parentElement.querySelector('.edit-profile__submit').id;
+        console.log("the profile id is " + profileId );
+  
+      var requestBody = {
+        name: profileName,
+        location: profileLocation,
+        instruments: profileInstruments,
+        description: profileDescription,
+        //password: profilePassword,
+        image: "dummy image",
+        profileId: profileId,
+        password: "Welcome"
+      }
+      console.log(requestBody);
+  
+      apiActions.putRequest(
+        `https://localhost:44372/api/Profile/${profileId}`,
+        requestBody,
+        profile => {
+            appDiv.innerHTML = ProfileDetails(profile);
         }
         console.log(requestBody);
 
@@ -232,7 +240,7 @@ appDiv.addEventListener("click", function () {
 })
 
 appDiv.addEventListener('click', function () {
-    if (event.target.classList.contains('profile__edit_button')) {
+    if (event.target.classList.contains('profile-edit__button')) {
         //const profileId = event.target.parentElement.querySelector('.profile__edit_button').id;
         const profileId = document.querySelector('.nav__myprofile').id;
         if (profileId == "0") {
