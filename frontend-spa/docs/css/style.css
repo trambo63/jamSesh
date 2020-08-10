@@ -12,6 +12,8 @@ body {
     box-sizing: border-box;
     margin: 2em 290px 0;
     min-width: 500px;
+    width: auto;
+    align-content: center;
   
   }
   
@@ -71,58 +73,73 @@ body {
    
   
   .navbar {
-  
+    
     width: 100%;
-  
+    
     background-color: #555;
-  
+    
     overflow: auto;
-
+    
     position: fixed;
     top: 0;
     left: 0;
     display: flex;
     justify-content: center;
+    z-index: 200;
   
   }
   
+  
+  .navbar a {
+  
+    /* float: left; */
+    
+    /* padding: 12px; */
+    
+    color: white;
+    
+    text-decoration: none;
+    
+    font-size: 17px;
+    
+    width: 25%;
+    
+    text-align: center;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+    
+  }
+
+  .navbar img {
+    display: flex;
+    justify-content: center;
+    padding-left: 300px;
+    padding-right: 125px;
+  }
+  
+  .navbar a:hover {
+    
+    background-color: #000;
+    color: red;
+    
+  }
+  
+  .navbar a.active {
+    
+    background-color: #4CAF50;
+    
+  }
+
   #map {
     border: 4px solid;
   } 
   
-  .navbar a {
-  
-    float: left;
-  
-    padding: 12px;
-  
-    color: white;
-  
-    text-decoration: none;
-  
-    font-size: 17px;
-  
-    width: 25%;
-  
-    text-align: center;
-  
-  }
-  
-  .navbar a:hover {
-  
-    background-color: #000;
-    color: red;
-  
-  }
-  
-  .navbar a.active {
-  
-    background-color: #4CAF50;
-  
-  }
-   
   button {
-  
+    
     font-family: Helvetica, Arial, sans-serif;
   
     font-size: 11px;
