@@ -69,19 +69,8 @@ function initMap() {
 
 }
 
-// function toggleMap() {
-//     toggleMapOn();
-//     toggleMapOff();
-// }
-
 function showLogon() {
-    // toggleMapOn();
-    // fetch("https://localhost:44372/api/Profile")
-    //     .then(response => response.json())
-    //     .then(profiles => {
     appDiv.innerHTML = ProfileLogin();
-    // })
-    // .catch(err => console.log(err))
 }
 
 function navHome() {
@@ -104,9 +93,6 @@ function navHome() {
     })
 }
 
-// function navJams() {
-// }
-
 function ShowProfiles() {
     fetch("https://localhost:44372/api/Profile")
         .then(response => response.json())
@@ -120,51 +106,12 @@ function ShowProfiles() {
 
 
 function toggleMapOn() {
-    // const jamsButton = document.querySelector('.nav__jams');
-    // jamsButton.addEventListener('click', function () {
-    //     const displaySetting = mapDiv.style.display;
-    //     console.log(displaySetting);
-    //     if (displaySetting == "none") {
-    //         mapDiv.style.display = "block";
-    //     }
-    // })
     mapDiv.style.display = "block";
 }
 
 function toggleMapOff() {
-    // const profilesButton = document.querySelector('.nav__profiles');
-    // const myProfileButton = document.querySelector('nav__myprofile');
-    // profilesButton.addEventListener('click', ()=> {
-    //     const displaySetting = mapDiv.style.display;
-    //     console.log(displaySetting);
-    //     if (displaySetting == "block") {
-    //         mapDiv.style.display = "none";
-    //     }
-    // })
-    // myProfileButton.addEventListener('click', ()=>{
-    //     if (displaySetting == "block") {
-    //         mapDiv.style.display = "none";
-    //     }
-    // })
     mapDiv.style.display = "none";
 }
-
-// appDiv.addEventListener("click", ()=> {
-//     const profilesButton = document.querySelector('.nav__profiles');
-//     profilesButton.addEventListener('click', function () {
-//         console.log(displaySetting);
-//         toggleMapOn();
-//     })
-// })
-
-// appDiv.addEventListener("click", () => {
-//     const myProfileButton = document.querySelector('.nav__myprofile');
-//     myProfileButton.addEventListener('click', function () {
-//         console.log(displaySetting);
-//         toggleMapOn();
-//     })
-// })
-
 
 function ShowJams() {
     console.log("jams");
@@ -263,7 +210,6 @@ appDiv.addEventListener('click', function () {
             window.alert("not logged in")
         }
         else {
-
             apiActions.getRequest(
                 `https://localhost:44372/api/Profile/${profileId}`,
                 profile => {
@@ -307,7 +253,6 @@ appDiv.addEventListener('click', function () {
             window.alert("not logged in")
         }
         else {
-
             const profileCallback = () => {
                 apiActions.getRequest(
                     `https://localhost:44372/api/Profile/`,
@@ -318,7 +263,6 @@ appDiv.addEventListener('click', function () {
                         console.log("after listing profiles")
                     })
             }
-
             apiActions.deleteRequest(
                 `https://localhost:44372/api/Profile/${profileId}`,
                 profileCallback
@@ -342,7 +286,6 @@ appDiv.addEventListener('click', function () {
     }
 })
 
-
 appDiv.addEventListener("click", function () {
     if (event.target.classList.contains('edit-jam__submit')) {
         const jamName = event.target.parentElement.querySelector('.edit-jam__name').value;
@@ -354,7 +297,6 @@ appDiv.addEventListener("click", function () {
         console.log("jam edit is here");
         const jamId = event.target.parentElement.querySelector('.edit-jam__submit').id;
         console.log("the jam id is " + jamId);
-
 
         var requestBody = {
             name: jamName,
@@ -375,7 +317,6 @@ appDiv.addEventListener("click", function () {
                 appDiv.innerHTML = JamDetails(jam);
             }
         )
-
     }
 })
 
@@ -387,14 +328,12 @@ appDiv.addEventListener('click', function () {
             window.alert("not logged in")
         }
         else {
-
             apiActions.getRequest(
                 `https://localhost:44372/api/Jam/${jamId}`,
                 jam => {
                     appDiv.innerHTML = JamEdit(jam);
                 }
             )
-
         }
     }
 })
@@ -407,7 +346,6 @@ appDiv.addEventListener('click', function () {
             window.alert("not logged in")
         }
         else {
-
             const jamCallback = () => {
                 apiActions.getRequest(
                     `https://localhost:44372/api/Jam/`,
@@ -417,7 +355,6 @@ appDiv.addEventListener('click', function () {
                         console.log("after listing jams")
                     })
             }
-
             apiActions.deleteRequest(
                 `https://localhost:44372/api/Jam/${jamId}`,
                 jamCallback
@@ -452,26 +389,15 @@ appDiv.addEventListener('click', function () {
             profile => {
                 navButton.innerHTML = profile.name;
                 navButton.id = profile.profileId;
-                if (profile.profileId != 100){
+                if (profile.profileId != 100) {
                     toggleMapOn();
                     ShowJams();
                 }
             }
         )
-
     }
 })
 
-// appDiv.addEventListener('click', function () { 
-//     console.log("1");
-//     if (event.target.classList.contains('nav__myprofile')) {
-//                 appDiv.innerHTML = ProfileLogin();
-//             }
-//             else {
-//                 console.log("does not exist");
-//             }
-
-// })
 appDiv.addEventListener("click", function () {
     if (event.target.classList.contains('add-jam__submit')) {
         const jamName = event.target.parentElement.querySelector('.add-jam__name').value;
@@ -480,7 +406,6 @@ appDiv.addEventListener("click", function () {
         const jamDate = event.target.parentElement.querySelector('.add-jam__date').value;
         const jamAttendees = event.target.parentElement.querySelector('.add-jam__attendees').value;
         console.log("add jam")
-
         var requestBody = {
             name: jamName,
             location: jamLocation,
@@ -491,7 +416,6 @@ appDiv.addEventListener("click", function () {
             profileId: 1
         }
         console.log(requestBody);
-
         apiActions.postRequest(
             "https://localhost:44372/api/Jam",
             requestBody,
@@ -510,7 +434,6 @@ appDiv.addEventListener('click', function () {
         const jamId = event.target.id;
         const profileId = document.querySelector('.nav__myprofile').id;
         //addJamAttendeeSection.innerHTML = JamDetails();
-
         var requestBody = {
             jamID: jamId,
             profileID: profileId
@@ -521,7 +444,6 @@ appDiv.addEventListener('click', function () {
             window.alert("not logged in")
         }
         else {
-
             console.log("after if")
             apiActions.postRequest(
                 "https://localhost:44372/api/ProfileJam",
@@ -538,14 +460,7 @@ appDiv.addEventListener('click', function () {
                     )
                 }
             )
-
-
-
-
         }
-
-
-
     }
 })
 
@@ -562,7 +477,6 @@ appDiv.addEventListener('click', function () {
         }
         else {
             console.log("after If")
-
             const jamDetailsCallback = () => {
                 apiActions.getRequest(
                     `https://localhost:44372/api/Jam/${jamId}`,
@@ -573,16 +487,11 @@ appDiv.addEventListener('click', function () {
                         console.log("after removed");
                     })
             }
-
-
             apiActions.deleteRequest(
                 `https://localhost:44372/api/ProfileJam/${jamId}/${profileId}`,
                 jamDetailsCallback
             )
         }
-
-
-
     }
 })
 
