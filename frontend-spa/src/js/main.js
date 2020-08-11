@@ -286,6 +286,7 @@ appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('delete-profile__button')) {
         //const profileId = event.target.parentElement.querySelector('.delete-profile__button').id;
         const profileId = document.querySelector('.nav__myprofile').id;
+        const navButton = document.querySelector('.nav__myprofile');
         if (profileId == "0") {
             window.alert("not logged in")
         }
@@ -296,6 +297,7 @@ appDiv.addEventListener('click', function () {
                     `https://localhost:44372/api/Profile/`,
                     profiles => {
                         console.log("before listing profiles");
+                        navButton.innerHTML = "My Profile";
                         appDiv.innerHTML = ListProfiles(profiles);
                         console.log("after listing profiles")
                     })
