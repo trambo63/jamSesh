@@ -59,12 +59,13 @@ function initMap() {
 }
 
 export default function pageBuild() {
-    ShowProfiles();
     navHome();
-    ShowJams();
+    // ShowProfiles();
+    // ShowJams();
     navJams();
     initMap();
-    toggleMap();
+    // toggleMap();
+    showLogon();
 }
 
 function toggleMap() {
@@ -72,18 +73,35 @@ function toggleMap() {
     toggleMapOff();
 }
 
-function navHome() {
-    const homeButton = document.querySelector('.nav__profiles');
-    homeButton.addEventListener('click', function () {
-        appDiv.innerHTML = ShowProfiles();
-    })
+function showLogon() {
+    // toggleMapOn();
+    // fetch("https://localhost:44372/api/Profile")
+    //     .then(response => response.json())
+    //     .then(profiles => {
+            appDiv.innerHTML = ProfileLogin();
+        // })
+        // .catch(err => console.log(err))
+}
 
+function navHome() {
     const myProfileButton = document.querySelector('.nav__myprofile');
     myProfileButton.addEventListener('click', function () {
         toggleMapOn();
         appDiv.innerHTML = ProfileLogin();
     })
 
+    const homeButton = document.querySelector('.nav__profiles');
+    homeButton.addEventListener('click', function () {
+        appDiv.innerHTML = ShowProfiles();
+    })
+
+}
+
+function navJams() {
+    const jamsButton = document.querySelector('.nav__jams');
+    jamsButton.addEventListener('click', function () {
+        appDiv.innerHTML = ShowJams();
+    })
 }
 
 function ShowProfiles() {
@@ -143,12 +161,6 @@ appDiv.addEventListener("click", () => {
     })
 })
 
-function navJams() {
-    const jamsButton = document.querySelector('.nav__jams');
-    jamsButton.addEventListener('click', function () {
-        appDiv.innerHTML = ShowJams();
-    })
-}
 
 function ShowJams() {
     toggleMapOn();
@@ -169,6 +181,7 @@ appDiv.addEventListener('click', function () {
         addProfileSection.innerHTML = ProfilePost();
     }
 })
+
 appDiv.addEventListener("click", function () {
     if (event.target.classList.contains('add-profile__submit')) {
         const profileName = event.target.parentElement.querySelector('.add-profile__name').value;
