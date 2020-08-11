@@ -8,9 +8,6 @@ export default function JamDetails(jam) {
     <div>${jam.description}</div>
     <h4>When: <input type="datetime-local" readonly="readonly" value="${jam.eventDate}"</h4>
     <h4>Max Jammers Needed: ${jam.maxNumberOfAttendees}</h4>
-
-    <button class="delete-jam__button" id="${jam.jamId}" value="${jam.jamId}">Delete Jam</button>                   
-    <button class="jam__edit_button" id="${jam.jamId}" value="${jam.jamId}">Edit Jam</button>   
     <button class="jam__joinJam_button" id="${jam.jamId}">Join Jam</button>
     </div>
     <div class="info-collection" id="AttendeesList">                
@@ -25,5 +22,12 @@ export default function JamDetails(jam) {
     }).join("")}
     </div>     
     </section>
+    <div class="delete-jam">
+    <img class="delete-jam__button" src="images/deleteIcon.png" alt="Delete this Sesh" width="40px" height="40px">                   
+    </div>
+    <div class="edit-jam">
+    <img class="jam__edit_button" src="images/editIcon.png" alt="Edit this Sesh" width="40px" height="40px">                   
+    </div>
+
     `
 }
