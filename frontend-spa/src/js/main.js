@@ -15,6 +15,17 @@ import Map from "./components/map";
 const appDiv = document.querySelector('#app');
 const mapDiv = document.querySelector("#map");
 
+
+export default function pageBuild() {
+    navHome();
+    // ShowProfiles();
+    // ShowJams();
+    // navJams();
+    initMap();
+    // toggleMap();
+    showLogon();
+}
+
 function initMap() {
 
     console.log("entered initmap");
@@ -58,29 +69,19 @@ function initMap() {
 
 }
 
-export default function pageBuild() {
-    navHome();
-    // ShowProfiles();
-    // ShowJams();
-    // navJams();
-    initMap();
-    // toggleMap();
-    showLogon();
-}
-
-function toggleMap() {
-    toggleMapOn();
-    toggleMapOff();
-}
+// function toggleMap() {
+//     toggleMapOn();
+//     toggleMapOff();
+// }
 
 function showLogon() {
     // toggleMapOn();
     // fetch("https://localhost:44372/api/Profile")
     //     .then(response => response.json())
     //     .then(profiles => {
-            appDiv.innerHTML = ProfileLogin();
-        // })
-        // .catch(err => console.log(err))
+    appDiv.innerHTML = ProfileLogin();
+    // })
+    // .catch(err => console.log(err))
 }
 
 function navHome() {
@@ -107,7 +108,6 @@ function navHome() {
 // }
 
 function ShowProfiles() {
-    toggleMapOn();
     fetch("https://localhost:44372/api/Profile")
         .then(response => response.json())
         .then(profiles => {
@@ -167,7 +167,6 @@ function toggleMapOff() {
 
 
 function ShowJams() {
-    toggleMapOn();
     console.log("jams");
     fetch("https://localhost:44372/api/Jam")
         .then(response => response.json())
@@ -217,33 +216,33 @@ appDiv.addEventListener("click", function () {
 
 appDiv.addEventListener("click", function () {
     if (event.target.classList.contains('edit-profile__submit')) {
-      const profileName = event.target.parentElement.querySelector('.edit-profile__name').value;
-      const profileLocation = event.target.parentElement.querySelector('.edit-profile__location').value;
-      const profileInstruments = event.target.parentElement.querySelector('.edit-profile__instruments').value;
-      const profileDescription = event.target.parentElement.querySelector('.edit-profile__description').value;
-      //const profilePassword = event.target.parentElement.querySelector('.edit-profile__password').value;
-      console.log("is here");
-      const profileId = event.target.parentElement.querySelector('.edit-profile__submit').id;
-        console.log("the profile id is " + profileId );
-  
-      var requestBody = {
-        name: profileName,
-        location: profileLocation,
-        instruments: profileInstruments,
-        description: profileDescription,
-        //password: profilePassword,
-        image: "dummy image",
-        profileId: profileId,
-        password: "Welcome"
-      }
-      console.log(requestBody);
-  
-      apiActions.putRequest(
-        `https://localhost:44372/api/Profile/${profileId}`,
-        requestBody,
-        profile => {
-            appDiv.innerHTML = ProfileDetails(profile);
-        })
+        const profileName = event.target.parentElement.querySelector('.edit-profile__name').value;
+        const profileLocation = event.target.parentElement.querySelector('.edit-profile__location').value;
+        const profileInstruments = event.target.parentElement.querySelector('.edit-profile__instruments').value;
+        const profileDescription = event.target.parentElement.querySelector('.edit-profile__description').value;
+        //const profilePassword = event.target.parentElement.querySelector('.edit-profile__password').value;
+        console.log("is here");
+        const profileId = event.target.parentElement.querySelector('.edit-profile__submit').id;
+        console.log("the profile id is " + profileId);
+
+        var requestBody = {
+            name: profileName,
+            location: profileLocation,
+            instruments: profileInstruments,
+            description: profileDescription,
+            //password: profilePassword,
+            image: "dummy image",
+            profileId: profileId,
+            password: "Welcome"
+        }
+        console.log(requestBody);
+
+        apiActions.putRequest(
+            `https://localhost:44372/api/Profile/${profileId}`,
+            requestBody,
+            profile => {
+                appDiv.innerHTML = ProfileDetails(profile);
+            })
         console.log(requestBody);
 
         apiActions.putRequest(
