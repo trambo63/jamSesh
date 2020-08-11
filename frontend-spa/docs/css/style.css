@@ -177,3 +177,29 @@ body {
     background-color: black;
     color: red;
   }
+
+  .add-jam img {
+    position: fixed;
+    left: 210px;
+    bottom: 0;
+    background-color: #333333;
+    border: 3px solid;
+    padding: 10px;
+  }
+
+  .add-jam img:hover {
+    background-color: white;
+  }
+
+  .add-profile img {
+    position: fixed;
+    left: 210px;
+    bottom: 0;
+    background-color: #333333;
+    border: 3px solid;
+    padding: 10px;
+  }
+
+  .add-profile img:hover {
+    background-color: white;
+  }

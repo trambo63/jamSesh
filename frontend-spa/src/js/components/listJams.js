@@ -12,7 +12,6 @@ export default function listJams(jams){
                     <li><h3>When: <input type="datetime-local" readonly="readonly" value="${jam.eventDate}"></h3>
                     <div id="jamIcon">
                     <button class="jam-details__button" id="${jam.jamId}">Jam Details</button>
-                    <img class="jam__name" src="images/jamIcon.png" alt="${jam.image}" width="25px" height="25px"></img>
             </li>
         </section>
        
@@ -21,6 +20,7 @@ export default function listJams(jams){
 </ul>
 <section class="add-jam">
         <button class="add-jam__button">Create Jam </button>
+        <img class="add-jam__button" src="images/jamIcon.png" alt="Create a Sesh" width="40px" height="40px"></img>
         </section>
 `
 }
