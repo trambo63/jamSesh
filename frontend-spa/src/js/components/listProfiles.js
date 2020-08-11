@@ -19,9 +19,7 @@ export default function listProfiles(profiles){
 }).join("")}           
 </ul>
 <section class="add-profile">
-        <button class="add-profile__button">Create Profile </button>
         <img class="add-profile__button" src="images/profilephoto.png" alt="Create a Profile" width="40px" height="40px"></img>
-
         </section>
 `
 }

@@ -164,7 +164,7 @@ body {
 
   footer a{
     position: fixed;
-    right: 0;
+    right: 175px;
     bottom: 0;
     text-decoration: none;
     padding: .5em;
@@ -201,5 +201,31 @@ body {
   }
 
   .add-profile img:hover {
+    background-color: white;
+  }
+
+  .delete-jam img {
+    position: fixed;
+    left: 210px;
+    bottom: 0;
+    background-color: #333333;
+    border: 3px solid;
+    padding: 10px;
+  }
+
+  .delete-jam img:hover {
+    background-color: white;
+  }
+
+  .delete-profile img {
+    position: fixed;
+    left: 210px;
+    bottom: 0;
+    background-color: #333333;
+    border: 3px solid;
+    padding: 10px;
+  }
+
+  .delete-profile img:hover {
     background-color: white;
   }
