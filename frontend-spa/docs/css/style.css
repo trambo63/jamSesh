@@ -214,7 +214,7 @@ body {
   }
 
   .delete-jam img:hover {
-    background-color: white;
+    background-color: red;
   }
 
   .delete-profile img {
@@ -227,5 +227,32 @@ body {
   }
 
   .delete-profile img:hover {
+    background-color: red;
+  }
+
+  .edit-profile img {
+    position: fixed;
+    left: 210px;
+    bottom: 80px;
+    background-color: #333333;
+    border: 3px solid;
+    padding: 10px;
+  }
+
+  .edit-profile img:hover {
     background-color: white;
   }
+
+  .edit-jam img {
+    position: fixed;
+    left: 210px;
+    bottom: 80px;
+    background-color: #333333;
+    border: 3px solid;
+    padding: 10px;
+  }
+
+  .edit-jam img:hover {
+    background-color: white;
+  }
+
