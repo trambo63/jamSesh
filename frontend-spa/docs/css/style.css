@@ -70,8 +70,14 @@ body {
   
   }
   
-   
+   #JamDetails {
+     display: flex;
+     flex-direction: row;
+   }
   
+   #AttendeesList {
+   }
+
   .navbar {
     
     width: 100%;
