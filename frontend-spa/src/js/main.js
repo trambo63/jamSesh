@@ -62,7 +62,7 @@ export default function pageBuild() {
     navHome();
     // ShowProfiles();
     // ShowJams();
-    navJams();
+    // navJams();
     initMap();
     // toggleMap();
     showLogon();
@@ -86,23 +86,25 @@ function showLogon() {
 function navHome() {
     const myProfileButton = document.querySelector('.nav__myprofile');
     myProfileButton.addEventListener('click', function () {
-        toggleMapOn();
+        toggleMapOff();
         appDiv.innerHTML = ProfileLogin();
     })
 
-    const homeButton = document.querySelector('.nav__profiles');
-    homeButton.addEventListener('click', function () {
+    const profilesButton = document.querySelector('.nav__profiles');
+    profilesButton.addEventListener('click', function () {
+        toggleMapOff();
         appDiv.innerHTML = ShowProfiles();
     })
 
-}
-
-function navJams() {
     const jamsButton = document.querySelector('.nav__jams');
     jamsButton.addEventListener('click', function () {
+        toggleMapOn();
         appDiv.innerHTML = ShowJams();
     })
 }
+
+// function navJams() {
+// }
 
 function ShowProfiles() {
     toggleMapOn();
@@ -118,48 +120,50 @@ function ShowProfiles() {
 
 
 function toggleMapOn() {
-    const jamsButton = document.querySelector('.nav__jams');
-    jamsButton.addEventListener('click', function () {
-        const displaySetting = mapDiv.style.display;
-        console.log(displaySetting);
-        if (displaySetting == "none") {
-            mapDiv.style.display = "block";
-        }
-    })
+    // const jamsButton = document.querySelector('.nav__jams');
+    // jamsButton.addEventListener('click', function () {
+    //     const displaySetting = mapDiv.style.display;
+    //     console.log(displaySetting);
+    //     if (displaySetting == "none") {
+    //         mapDiv.style.display = "block";
+    //     }
+    // })
+    mapDiv.style.display = "block";
 }
 
 function toggleMapOff() {
-    const profilesButton = document.querySelector('.nav__profiles');
-    const myProfileButton = document.querySelector('nav__myprofile');
-    profilesButton.addEventListener('click', ()=> {
-        const displaySetting = mapDiv.style.display;
-        console.log(displaySetting);
-        if (displaySetting == "block") {
-            mapDiv.style.display = "none";
-        }
-    })
-    myProfileButton.addEventListener('click', ()=>{
-        if (displaySetting == "block") {
-            mapDiv.style.display = "none";
-        }
-    })
+    // const profilesButton = document.querySelector('.nav__profiles');
+    // const myProfileButton = document.querySelector('nav__myprofile');
+    // profilesButton.addEventListener('click', ()=> {
+    //     const displaySetting = mapDiv.style.display;
+    //     console.log(displaySetting);
+    //     if (displaySetting == "block") {
+    //         mapDiv.style.display = "none";
+    //     }
+    // })
+    // myProfileButton.addEventListener('click', ()=>{
+    //     if (displaySetting == "block") {
+    //         mapDiv.style.display = "none";
+    //     }
+    // })
+    mapDiv.style.display = "none";
 }
 
-appDiv.addEventListener("click", ()=> {
-    const profilesButton = document.querySelector('.nav__profiles');
-    profilesButton.addEventListener('click', function () {
-        console.log(displaySetting);
-        toggleMapOn();
-    })
-})
+// appDiv.addEventListener("click", ()=> {
+//     const profilesButton = document.querySelector('.nav__profiles');
+//     profilesButton.addEventListener('click', function () {
+//         console.log(displaySetting);
+//         toggleMapOn();
+//     })
+// })
 
-appDiv.addEventListener("click", () => {
-    const myProfileButton = document.querySelector('.nav__myprofile');
-    myProfileButton.addEventListener('click', function () {
-        console.log(displaySetting);
-        toggleMapOn();
-    })
-})
+// appDiv.addEventListener("click", () => {
+//     const myProfileButton = document.querySelector('.nav__myprofile');
+//     myProfileButton.addEventListener('click', function () {
+//         console.log(displaySetting);
+//         toggleMapOn();
+//     })
+// })
 
 
 function ShowJams() {
