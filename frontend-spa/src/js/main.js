@@ -452,8 +452,10 @@ appDiv.addEventListener('click', function () {
             profile => {
                 navButton.innerHTML = profile.name;
                 navButton.id = profile.profileId;
-                if (profile.profileId != 100)
+                if (profile.profileId != 100){
+                    toggleMapOn();
                     ShowJams();
+                }
             }
         )
 
