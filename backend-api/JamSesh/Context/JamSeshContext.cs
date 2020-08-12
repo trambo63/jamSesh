@@ -74,7 +74,7 @@ namespace JamSesh.Context
             {
                 ProfileId = 1,
                 Name = "Brandon",
-                Image = "DefaultProfilePhoto.jpg",
+                Image = "AvatarImage1.png",
                 Instruments = "Bass, Drums",
                 Description = "New to the area, and I just want to get together with some people on the weekends to play some tunes",
                 Location = "North Olmsted, OH",
@@ -85,7 +85,7 @@ namespace JamSesh.Context
             {
                 ProfileId = 2,
                 Name = "Eddie",
-                Image = "DefaultProfilePhoto.jpg",
+                Image = "AvatarImage2.png",
                 Instruments = "Keys, Acoustic Guitar, Vocals",
                 Description = "I like playing jazz standards in small trios",
                 Location = "Parma, OH",
@@ -96,7 +96,7 @@ namespace JamSesh.Context
             {
                 ProfileId = 3,
                 Name = "Neil",
-                Image = "DefaultProfilePhoto.jpg",
+                Image = "AvatarImage3.png",
                 Instruments = "Mandalin, Guitar, Bass, Drums",
                 Description = "I've got more instruments than just the ones I play. I'm usually available on the weekends. LET'S JAM",
                 Location = "Brooklyn, OH",

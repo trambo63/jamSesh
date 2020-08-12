@@ -4,14 +4,16 @@ using JamSesh.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JamSesh.Migrations
 {
     [DbContext(typeof(JamSeshContext))]
-    partial class JamSeshContextModelSnapshot : ModelSnapshot
+    [Migration("20200812151256_ProfileImages")]
+    partial class ProfileImages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,7 +55,7 @@ namespace JamSesh.Migrations
                         {
                             JamId = 1,
                             Description = "Need 2 more people to play some 80s Rock at Edgewater Park. Could use vocals and bass/guitar.",
-                            EventDate = new DateTime(2020, 8, 12, 11, 20, 38, 729, DateTimeKind.Local).AddTicks(1613),
+                            EventDate = new DateTime(2020, 8, 12, 11, 12, 55, 76, DateTimeKind.Local).AddTicks(6128),
                             Image = "JamIcon.jpg",
                             Location = "333 Foundry St, Medina, OH 44256",
                             MaxNumberOfAttendees = 3,
@@ -63,7 +65,7 @@ namespace JamSesh.Migrations
                         {
                             JamId = 2,
                             Description = "I need a lot of people and a pretty decent range of intruments so we can meet at castle noel and play Duke Ellington and Count Basie songs.",
-                            EventDate = new DateTime(2020, 8, 12, 11, 20, 38, 750, DateTimeKind.Local).AddTicks(4725),
+                            EventDate = new DateTime(2020, 8, 12, 11, 12, 55, 80, DateTimeKind.Local).AddTicks(5019),
                             Image = "JamIcon.jpg",
                             Location = "260 S Court St, Medina, OH 44256",
                             MaxNumberOfAttendees = 7,
@@ -73,7 +75,7 @@ namespace JamSesh.Migrations
                         {
                             JamId = 3,
                             Description = "I need a drummer to play along with me while I play acoustic guitar and sing. Looking to play some popular gospel standards at my church this Sunday!",
-                            EventDate = new DateTime(2020, 8, 12, 11, 20, 38, 750, DateTimeKind.Local).AddTicks(4881),
+                            EventDate = new DateTime(2020, 8, 12, 11, 12, 55, 80, DateTimeKind.Local).AddTicks(5107),
                             Image = "JamIcon.jpg",
                             Location = "606 E Washington St, Medina, OH 44256",
                             MaxNumberOfAttendees = 2,
