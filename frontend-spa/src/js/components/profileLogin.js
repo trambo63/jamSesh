@@ -17,7 +17,6 @@ export default function ProfileLogin() {
 <div class="continue-as-guest">Continue As Fan</div>
 </br>
 </br>
-</br>
 </section>
 <div class="SideImages">
 <div id="leftImage">

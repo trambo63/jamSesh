@@ -320,6 +320,7 @@ appDiv.addEventListener("click", function () {
             }
         )
     }
+    toggleMapOff();
 })
 
 appDiv.addEventListener('click', function () {
