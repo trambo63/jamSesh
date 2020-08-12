@@ -322,10 +322,12 @@ appDiv.addEventListener("click", function () {
 
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('jam__edit_button')) {
+        console.log("jam edit clicked");
         const jamId = event.target.parentElement.querySelector('.jam__edit_button').id;
         const profileId = document.querySelector('.nav__myprofile').id;
-        if (profileId == "0") {
-            window.alert("not logged in")
+        console.log("jam id is " + jamId + " profile id is " + profileId);
+        if (profileId == "0" || profileId != jamId) {
+            window.alert("not logged in");
         }
         else {
             apiActions.getRequest(
@@ -342,7 +344,7 @@ appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('delete-jam__button')) {
         const jamId = event.target.parentElement.querySelector('.delete-jam__button').id;
         const profileId = document.querySelector('.nav__myprofile').id;
-        if (profileId == "0") {
+        if (profileId == "0" || profileId != jamId) {
             window.alert("not logged in")
         }
         else {
@@ -467,7 +469,7 @@ appDiv.addEventListener('click', function () {
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('jam__leaveJam_button')) {
         console.log("button clicked");
-        const jamId = event.target.parentElement.querySelector('.delete-jam__button').id;
+        const jamId = event.target.parentElement.querySelector('.jam__leaveJam_button').id;
         console.log("after jamId");
         const profileId = document.querySelector('.nav__myprofile').id;
         console.log("after profileId" + profileId);
