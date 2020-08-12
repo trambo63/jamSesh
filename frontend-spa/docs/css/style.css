@@ -256,3 +256,13 @@ body {
     background-color: white;
   }
 
+#leftImage {
+  position: fixed;
+  left: 10px;
+  bottom: 60px;
+}
+#rightImage {
+  position: fixed;
+  right: 10px;
+  bottom: 60px;
+}
