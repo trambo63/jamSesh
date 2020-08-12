@@ -469,7 +469,7 @@ appDiv.addEventListener('click', function () {
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('jam__leaveJam_button')) {
         console.log("button clicked");
-        const jamId = event.target.parentElement.querySelector('.delete-jam__button').id;
+        const jamId = event.target.parentElement.querySelector('.jam__leaveJam_button').id;
         console.log("after jamId");
         const profileId = document.querySelector('.nav__myprofile').id;
         console.log("after profileId" + profileId);
