@@ -114,7 +114,7 @@ namespace JamSesh.Context
                 Description = "Need 2 more people to play some 80s Rock at Edgewater Park. Could use vocals and bass/guitar.",
                 EventDate = DateTime.Now,
                 MaxNumberOfAttendees = 3,
-                Image = "JamIcon.jpg"
+                Image = "High-Voltage-Acoustic-Rock.jpg"
             },
 
             new Jam
@@ -125,7 +125,7 @@ namespace JamSesh.Context
                 Description = "I need a lot of people and a pretty decent range of intruments so we can meet at castle noel and play Duke Ellington and Count Basie songs.",
                 EventDate = DateTime.Now,
                 MaxNumberOfAttendees = 7,
-                Image = "JamIcon.jpg"
+                Image = "Castle-Noel.jpg"
             },
 
             new Jam
@@ -136,7 +136,7 @@ namespace JamSesh.Context
                 Description = "I need a drummer to play along with me while I play acoustic guitar and sing. Looking to play some popular gospel standards at my church this Sunday!",
                 EventDate = DateTime.Now,
                 MaxNumberOfAttendees = 2,
-                Image = "JamIcon.jpg"
+                Image = "Church.jpg"
             }
 
             );

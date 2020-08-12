@@ -4,7 +4,7 @@ export default function JamDetails(jam) {
     <section class="info-details" id="JamDetails">
     <div class="info-collection">
     <h2>Title: ${jam.name}</h2>  
-    <h4><a class="jamdetails__name" id="${jam.jamId}" href="#"> <img src="images/jamphoto.png" alt="${jam.image}" width="200" height="200"></a></h4>
+    <h4><a class="jamdetails__name" id="${jam.jamId}" href="#"> <img src="images/${jam.image}" alt="${jam.name}" width="200" height="200"></a></h4>
     <h4>Where: ${jam.location}</h4>
     <div>${jam.description}</div>
     <h4>When: ${moment(jam.eventDate).format('MMM DD, h:mm a')}</h4>
