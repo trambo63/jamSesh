@@ -1,5 +1,6 @@
+import moment from "moment";
 export default function listJams(jams){
-    return `
+return `
             
         <ul class="info-collection">
             ${jams.map(jam => {
@@ -9,7 +10,7 @@ export default function listJams(jams){
                     <li><h3 class="jam__name" id="${jam.jamId}">Title: ${jam.name}</h3>
                     <li><div>${jam.description}</div>
                     <li><h3>Where: ${jam.location}</h3>
-                    <li><h3>When: <input type="datetime-local" readonly="readonly" value="${jam.eventDate}"></h3>
+                    <li><h3>When: ${moment(jam.eventDate).format('MMM DD, h:mm a')}</h3>
                     <div id="jamIcon">
                     <button class="jam-details__button" id="${jam.jamId}">Jam Details</button>
             </li>
