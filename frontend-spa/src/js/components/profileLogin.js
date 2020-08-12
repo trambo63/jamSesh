@@ -3,7 +3,7 @@ export default function ProfileLogin() {
 <section class="Logon">
 <div class="Welcome">
 <h1>Welcome to JamSesh!</h1>
-<h2><span id="signIn">Sign In</span> or <span id="continue">Continue As Fan</span></h2>
+<h2><span id="signIn">Sign In As Jammer</span> or <span id="continue">Continue As Groupie</span></h2>
 </div>
 <h3>Username</h3>  
 <input class="logon-profile__name" type="text" placeholder="Enter your username">
@@ -12,9 +12,9 @@ export default function ProfileLogin() {
 </br>
 </br>
 </br>
-<div class="logon-profile__submit">Sign In</div>
+<div class="logon-profile__submit">Ready To Jam</div>
 </br>
-<div class="continue-as-guest">Continue As Fan</div>
+<div class="continue-as-guest">I'm Just A Groupie</div>
 </br>
 </br>
 </section>
