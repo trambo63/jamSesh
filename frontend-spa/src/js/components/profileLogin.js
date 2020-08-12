@@ -1,11 +1,25 @@
 export default function ProfileLogin() {
     return `
 <section class="Logon">
+<div class="Welcome">
+<h1>Welcome to JamSesh!</h1>
+<h2><span id="signIn">Sign In</span> or <span id="continue">Continue As Fan</span></h2>
+</div>
 <h3>Username</h3>  
 <input class="logon-profile__name" type="text" placeholder="Enter your username">
 <h3>Password</h3>
 <input class="logon-profile__password" type="text" placeholder="Enter your password">
-<button class="logon-profile__submit">Logon</button>
+</br>
+</br>
+</br>
+<div class="logon-profile__submit">Sign In</div>
+</br>
+<div class="continue-as-guest">Continue As Fan</div>
+</br>
+</br>
+</br>
+</br>
+</br>
 </section>
 <div class="SideImages">
 <div id="leftImage">

@@ -259,10 +259,48 @@ body {
 #leftImage {
   position: fixed;
   left: 10px;
-  bottom: 60px;
+  bottom: 80px;
 }
 #rightImage {
   position: fixed;
   right: 10px;
-  bottom: 60px;
+  bottom: 70px;
+}
+
+.Logon {
+  text-align: center;
+}
+
+.logon-profile__submit{
+  font-size: 1.5em;
+  padding: .5em;
+  background-color: #333333;
+  color: white;
+  border: 3px solid black;
+}
+
+.logon-profile__submit:hover {
+  background-color: black;
+  color: red;
+}
+
+.continue-as-guest{
+  font-size: 1.5em;
+  padding: .5em;
+  background-color: #333333;
+  color: white;
+  border: 3px solid black;
+}
+
+.continue-as-guest:hover {
+  background-color: black;
+  color: #333333;
+}
+
+#signIn {
+  color: red;
+}
+
+#continue {
+  color: #333333;
 }
