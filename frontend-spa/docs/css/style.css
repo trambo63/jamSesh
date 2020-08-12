@@ -123,8 +123,10 @@ body {
   .navbar img {
     display: flex;
     justify-content: center;
-    padding-left: 200px;
+    padding-left: 210px;
     padding-right: 50px;
+    padding-bottom: 2.5px;
+    padding-top: 2.5px;
   }
   
   .navbar a:hover {
@@ -269,6 +271,7 @@ body {
 
 .Logon {
   text-align: center;
+  font-size: 1.2em;
 }
 
 .logon-profile__submit{

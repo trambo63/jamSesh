@@ -18,8 +18,6 @@ export default function ProfileLogin() {
 </br>
 </br>
 </br>
-</br>
-</br>
 </section>
 <div class="SideImages">
 <div id="leftImage">
