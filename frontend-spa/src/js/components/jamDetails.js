@@ -23,10 +23,10 @@ export default function JamDetails(jam) {
     </div>     
     </section>
     <div class="delete-jam">
-    <img class="delete-jam__button" src="images/deleteIcon.png" alt="Delete this Sesh" width="40px" height="40px">                   
+    <img class="delete-jam__button" id="${jam.jamId}" src="images/deleteIcon.png" alt="Delete this Sesh" width="40px" height="40px">                   
     </div>
     <div class="edit-jam">
-    <img class="jam__edit_button" src="images/editIcon.png" alt="Edit this Sesh" width="40px" height="40px">                   
+    <img class="jam__edit_button" id="${jam.jamId}" src="images/editIcon.png" alt="Edit this Sesh" width="40px" height="40px">                   
     </div>
 
     `
