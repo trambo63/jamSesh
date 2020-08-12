@@ -168,6 +168,7 @@ appDiv.addEventListener("click", function () {
         const profileInstruments = event.target.parentElement.querySelector('.edit-profile__instruments').value;
         const profileDescription = event.target.parentElement.querySelector('.edit-profile__description').value;
         //const profilePassword = event.target.parentElement.querySelector('.edit-profile__password').value;
+        const navButton = document.querySelector('.nav__myprofile');
         console.log("is here");
         const profileId = event.target.parentElement.querySelector('.edit-profile__submit').id;
         console.log("the profile id is " + profileId);
@@ -189,6 +190,7 @@ appDiv.addEventListener("click", function () {
             requestBody,
             profile => {
                 appDiv.innerHTML = ProfileDetails(profile);
+                navButton.innerHTML = profileName;
             })
         console.log(requestBody);
 
