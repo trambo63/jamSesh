@@ -397,6 +397,9 @@ appDiv.addEventListener('click', function () {
                     toggleMapOn();
                     ShowJams();
                 }
+                if (logonName != profile.name || logonPassword != profile.password){
+                    window.alert("invalid login");
+                }
             }
         )
     }
