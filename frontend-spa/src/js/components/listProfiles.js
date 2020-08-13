@@ -18,8 +18,8 @@ export default function listProfiles(profiles){
     `
 }).join("")}           
 </ul>
-<section class="add-profile">
-        <img class="add-profile__button" src="images/profilephoto.png" alt="Create a Profile" width="40px" height="40px"></img>
+<section id="add-profile" class="add-profile">
+        <a href="#add-profile"><img style="border-color: black;" class="add-profile__button" src="images/create.png" alt="Create a Profile" width="40px" height="40px"></a>
         </section>
 `
 }

@@ -11,6 +11,7 @@ import JamPost from "./components/jamPost";
 import JamEdit from "./components/jamEdit";
 import ProfileLogin from "./components/profileLogin";
 import Map from "./components/map";
+import listJams from "./components/listJams";
 
 const appDiv = document.querySelector('#app');
 const mapDiv = document.querySelector("#map");
@@ -72,7 +73,7 @@ function initMap() {
 
 function showLogon() {
     appDiv.innerHTML = ProfileLogin();
-    toggleTopOn();
+    // toggleTopOn();
 }
 
 function navHome() {
@@ -115,9 +116,10 @@ function toggleMapOff() {
     mapDiv.style.display = "none";
 }
 
-function toggleTopOn() {
-    topDiv.style.display = "block";
-}
+// function toggleTopOn() {
+//     topDiv.style.display = "block";
+// }
+
 
 function ShowJams() {
     console.log("jams");
@@ -126,15 +128,17 @@ function ShowJams() {
         .then(jams => {
             appDiv.innerHTML = ListJams(jams);
             console.log(jams);
-
+            
         })
         .catch(err => console.log(err))
-}
-
+    }
+    
 appDiv.addEventListener('click', function () {
     if (event.target.classList.contains('add-profile__button')) {
         const addProfileSection = document.querySelector('.add-profile');
         addProfileSection.innerHTML = ProfilePost();
+        // appDiv.innerHTML = ProfilePost();
+
     }
 })
 
@@ -178,7 +182,7 @@ appDiv.addEventListener("click", function () {
         console.log("is here");
         const profileId = event.target.parentElement.querySelector('.edit-profile__submit').id;
         console.log("the profile id is " + profileId);
-
+        
         var requestBody = {
             name: profileName,
             location: profileLocation,
@@ -190,7 +194,7 @@ appDiv.addEventListener("click", function () {
             password: "Welcome"
         }
         console.log(requestBody);
-
+        
         apiActions.putRequest(
             `https://localhost:44372/api/Profile/${profileId}`,
             requestBody,
@@ -198,22 +202,22 @@ appDiv.addEventListener("click", function () {
                 appDiv.innerHTML = ProfileDetails(profile);
                 navButton.innerHTML = profileName;
             })
-        console.log(requestBody);
-
-        apiActions.putRequest(
-            `https://localhost:44372/api/Profile/${profileId}`,
-            requestBody,
-            profile => {
-                appDiv.innerHTML = ProfileDetails(profile);
+            console.log(requestBody);
+            
+            apiActions.putRequest(
+                `https://localhost:44372/api/Profile/${profileId}`,
+                requestBody,
+                profile => {
+                    appDiv.innerHTML = ProfileDetails(profile);
+                }
+                )
             }
-        )
-    }
-})
+        })
 
-appDiv.addEventListener('click', function () {
-    if (event.target.classList.contains('profile-edit__button')) {
-        //const profileId = event.target.parentElement.querySelector('.profile__edit_button').id;
-        const profileId = document.querySelector('.nav__myprofile').id;
+        appDiv.addEventListener('click', function () {
+            if (event.target.classList.contains('profile-edit__button')) {
+                //const profileId = event.target.parentElement.querySelector('.profile__edit_button').id;
+                const profileId = document.querySelector('.nav__myprofile').id;
         if (profileId == "0") {
             window.alert("not logged in")
         }
@@ -236,7 +240,14 @@ appDiv.addEventListener('click', function () {
             profile => {
                 appDiv.innerHTML = ProfileDetails(profile);
             }
-        )
+            )
+        }
+})
+
+appDiv.addEventListener("click", ()=> {
+    if (event.target.classList.contains("continue-as-guest")){
+        ShowJams();
+        toggleMapOn();
     }
 })
 

@@ -16,6 +16,7 @@ export default function ProfileLogin() {
 </br>
 <div class="continue-as-guest">I'm Just A Groupie</div>
 </br>
+<div>You can sign up to become our newest Jammer on the Jammers page!</div>
 </br>
 </section>
 <div class="SideImages">
