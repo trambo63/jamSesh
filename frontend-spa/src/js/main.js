@@ -14,6 +14,7 @@ import Map from "./components/map";
 
 const appDiv = document.querySelector('#app');
 const mapDiv = document.querySelector("#map");
+const topDiv = document.querySelector('#BackToTop');
 
 
 export default function pageBuild() {
@@ -71,6 +72,7 @@ function initMap() {
 
 function showLogon() {
     appDiv.innerHTML = ProfileLogin();
+    toggleTopOn();
 }
 
 function navHome() {
@@ -111,6 +113,10 @@ function toggleMapOn() {
 
 function toggleMapOff() {
     mapDiv.style.display = "none";
+}
+
+function toggleTopOn() {
+    topDiv.style.display = "block";
 }
 
 function ShowJams() {
@@ -320,6 +326,7 @@ appDiv.addEventListener("click", function () {
             }
         )
     }
+    toggleMapOff();
 })
 
 appDiv.addEventListener('click', function () {
