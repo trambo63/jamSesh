@@ -206,7 +206,7 @@ body {
 
   .add-jam img {
     position: fixed;
-    left: 210px;
+    left: 222px;
     bottom: 0;
     background-color: #333333;
     border: 3px solid;
@@ -219,7 +219,7 @@ body {
 
   .add-profile img {
     position: fixed;
-    left: 210px;
+    left: 222px;
     bottom: 0;
     background-color: #333333;
     border: 3px solid;
@@ -232,7 +232,7 @@ body {
 
   .delete-jam img {
     position: fixed;
-    left: 210px;
+    left: 222px;
     bottom: 0;
     background-color: #333333;
     border: 3px solid;
@@ -245,7 +245,7 @@ body {
 
   .delete-profile img {
     position: fixed;
-    left: 210px;
+    left: 222px;
     bottom: 0;
     background-color: #333333;
     border: 3px solid;
@@ -258,7 +258,7 @@ body {
 
   .edit-profile img {
     position: fixed;
-    left: 210px;
+    left: 222px;
     bottom: 80px;
     background-color: #333333;
     border: 3px solid;
@@ -271,7 +271,7 @@ body {
 
   .edit-jam img {
     position: fixed;
-    left: 210px;
+    left: 222px;
     bottom: 80px;
     background-color: #333333;
     border: 3px solid;
