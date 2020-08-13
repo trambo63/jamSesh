@@ -19,8 +19,8 @@ return `
     `
 }).join("")}           
 </ul>
-<section class="add-jam">
-        <img class="add-jam__button" src="images/jamIcon.png" alt="Create a Sesh" width="40px" height="40px"></img>
+<section id="add-jam" class="add-jam">
+<a href="#add-jam"><img style="border-color: black;" class="add-jam__button" src="images/create.png" alt="Create a Sesh" width="40px" height="40px"></a>
         </section>
 `
 }
