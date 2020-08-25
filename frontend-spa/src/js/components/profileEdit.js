@@ -2,6 +2,8 @@ export default function ProfileEdit(profile) {
     return `
     <section class="info-details">
     <h2>Username: <input class="edit-profile__name" type="text" value="${profile.name}"></h2>
+    <input type='file' />
+    <br><img id="myImg" src="#" alt="your image" height=200 width=100>
     <h4><a class="profiledetails__name" id="${profile.profileId}" href="#"> <img src="images/${profile.image}" alt="${profile.name}" width="200" height="200"></a></h4>
     <h4>From: <input class="edit-profile__location" type="text" value="${profile.location}"></h4>
     <h4>Instruments: <input class="edit-profile__instruments" type="text" value="${profile.instruments}"></h4>
